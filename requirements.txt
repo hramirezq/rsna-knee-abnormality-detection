@@ -1,0 +1,13 @@
+# Versiones probadas (Python 3.13, macOS). En Kaggle se usan las preinstaladas; pylibjpeg lo instala el notebook.
+torch==2.14.1
+torchvision==0.29.1
+pydicom==3.0.2
+pylibjpeg==2.1.0
+pylibjpeg-libjpeg==2.5.0
+pylibjpeg-openjpeg==2.6.0
+numpy==2.5.4
+pandas==3.1.0
+scikit-learn==1.9.1
+matplotlib==3.11.2
+jupyter==1.1.1
+nbconvert==7.17.2
