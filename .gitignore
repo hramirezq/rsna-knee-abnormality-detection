@@ -1,7 +1,7 @@
 work/
 .venv/
 executed.ipynb
-output-train/*.pt
-output-train/wheels/
-output-train/weak_labels.csv
+output-data*/*.pt
+output-data*/wheels/
+output-data*/weak_labels.csv
 .ipynb_checkpoints/
