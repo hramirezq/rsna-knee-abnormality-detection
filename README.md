@@ -44,9 +44,6 @@ Los datos de la competencia **no están en este repositorio**, por su tamaño y 
 │   ├── experimentos.tex            # diseño de experimentos y resultados
 │   ├── referencias.bib
 │   └── figs/                       # copias de experimentos.png y gradcam.png
-├── docs/
-│   ├── PLAN.md              # guía paso a paso para correr en Kaggle, sin experiencia previa
-│   └── README.md            # versión anterior de este README
 └── work/                    # (ignorado por git) datos sintéticos y salidas de la corrida local
 ```
 
@@ -85,8 +82,13 @@ notebook es el *Input* del siguiente:
 | `knee-train` | `train` | GPU T4, Internet ON | competencia + `knee-preprocess` | todo lo de `output-train/` + checkpoints |
 | `knee-submit` (opcional) | `infer` | GPU, Internet OFF | competencia + `knee-train` | `submission.csv` |
 
-La guía detallada (crear la cuenta, aceptar las reglas, agregar Inputs, *Save & Run All*, problemas frecuentes)
-está en [docs/PLAN.md](docs/PLAN.md), sección 4.
+Pasos en Kaggle:
+
+1. Verificar el teléfono en la cuenta (sin eso no se habilitan la GPU ni el internet) y aceptar las [reglas](https://www.kaggle.com/competitions/rsna-knee-abnormality-detection/rules) de la competencia.
+2. **+ Create → New Notebook → File → Import Notebook** y subir `rsna_knee_kaggle.ipynb`.
+3. Agregar los Inputs de la tabla con **+ Add Input** y configurar la máquina en **Session options**.
+4. Cambiar `MODE` y hacer una prueba corta: `LIMIT = 50` en `preprocess`, o `RUN = ['A_scratch', 'B_resnet18']` con 1 época en `train`.
+5. Para la corrida completa, **Save Version → Save & Run All (Commit)**. Corre en segundo plano hasta 12 h, y las salidas quedan en la pestaña **Output**.
 
 ### Parámetros de la primera celda
 
