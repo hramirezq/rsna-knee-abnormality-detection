@@ -1,0 +1,489 @@
+[{"stream_name":"stderr","time":7.825020275,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.825083418,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.82509084,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.825094844,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.478484954,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.478531326,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.478536124,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.47853895,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":13.150903177,"data":"decodificadores JPEG (pylibjpeg): instalados\n"}
+,{"stream_name":"stdout","time":31.036745101,"data":"train cuda {'img': 224, 'depth': 16, 'k': 8, 'd_model': 256, 'epochs': 15, 'bs': 8, 'lr_bb': 0.0001, 'lr_head': 0.001, 'wd': 0.01, 'warmup': 0.05, 'workers': 4, 'backbone': 'resnet18', 'loss': 'bce', 'labels': 'weighted', 'planes': [0, 1, 2], 'pos_weight': True}\n"}
+,{"stream_name":"stdout","time":31.091511637,"data":"Datos de la competencia en /kaggle/input/competitions/rsna-knee-abnormality-detection\n"}
+,{"stream_name":"stdout","time":31.460613162,"data":"estudios: 4407 | gold (etiqueta experta): 58 | series: 24371\n"}
+,{"stream_name":"stdout","time":31.460653473,"data":"Anatomical_Plane  Fluid_Sensitive  Fat_Suppression\n"}
+,{"stream_name":"stdout","time":31.460657018,"data":"Axial             0                0                  1179\n"}
+,{"stream_name":"stdout","time":31.460660578,"data":"                  1                1                  4719\n"}
+,{"stream_name":"stdout","time":31.460679074,"data":"Coronal           0                0                  3985\n"}
+,{"stream_name":"stdout","time":31.460683592,"data":"                  1                1                  4624\n"}
+,{"stream_name":"stdout","time":31.460687499,"data":"Sagittal          0                0                  5197\n"}
+,{"stream_name":"stdout","time":31.460691752,"data":"                  1                1                  4667\n"}
+,{"stream_name":"stdout","time":31.460695756,"data":"dtype: int64\n"}
+,{"stream_name":"stdout","time":31.4607,"data":"series por estudio: {'min': 3.0, '50%': 5.0, 'max': 14.0}\n"}
+,{"stream_name":"stdout","time":31.460704238,"data":"prevalencia en gold:\n"}
+,{"stream_name":"stdout","time":31.460708174,"data":" {'ACL': 0.41, 'MCL': 0.16, 'Medial Meniscus': 0.45, 'Lateral Meniscus': 0.4, 'Medial OA': 0.26, 'Lateral OA': 0.19, 'PF OA': 0.36, 'Effusion': 0.6, 'Synovitis': 0.47, \"Baker's\": 0.21, 'Contusion': 0.33, 'Fracture': 0.31}\n"}
+,{"stream_name":"stdout","time":50.444467868,"data":"4407 reportes procesados en 18s\n"}
+,{"stream_name":"stdout","time":50.444515332,"data":"                  positivos_gold  mencion  acuerdo  sensibilidad  especificidad    AUC\n"}
+,{"stream_name":"stdout","time":50.444522555,"data":"hallazgo                                                                              \n"}
+,{"stream_name":"stdout","time":50.444527675,"data":"ACL                           24    0.724    0.879         0.917          0.853  0.885\n"}
+,{"stream_name":"stdout","time":50.444533268,"data":"MCL                            9    0.621    0.828         0.667          0.857  0.754\n"}
+,{"stream_name":"stdout","time":50.444553462,"data":"Medial Meniscus               26    0.621    0.759         0.692          0.812  0.752\n"}
+,{"stream_name":"stdout","time":50.44455794,"data":"Lateral Meniscus              23    0.586    0.828         0.652          0.943  0.806\n"}
+,{"stream_name":"stdout","time":50.444562544,"data":"Medial OA                     15    0.500    0.810         0.667          0.860  0.760\n"}
+,{"stream_name":"stdout","time":50.44456623,"data":"Lateral OA                    11    0.448    0.810         0.636          0.851  0.733\n"}
+,{"stream_name":"stdout","time":50.444569522,"data":"PF OA                         21    0.621    0.707         0.667          0.730  0.690\n"}
+,{"stream_name":"stdout","time":50.444572794,"data":"Effusion                      35    0.845    0.638         0.829          0.348  0.666\n"}
+,{"stream_name":"stdout","time":50.444576212,"data":"Synovitis                     27    0.362    0.672         0.444          0.871  0.658\n"}
+,{"stream_name":"stdout","time":50.444579535,"data":"Baker's                       12    0.362    0.862         0.750          0.891  0.821\n"}
+,{"stream_name":"stdout","time":50.444582942,"data":"Contusion                     19    0.603    0.793         0.684          0.846  0.760\n"}
+,{"stream_name":"stdout","time":50.444586546,"data":"Fracture                      18    0.500    0.793         0.667          0.850  0.758\n"}
+,{"stream_name":"stdout","time":50.444589868,"data":"\n"}
+,{"stream_name":"stdout","time":50.444593066,"data":"acuerdo medio 0.782 → tasa de ruido estimada 0.218 | AUC macro del extractor vs gold 0.753\n"}
+,{"stream_name":"stdout","time":50.444597242,"data":"\n"}
+,{"stream_name":"stdout","time":50.444601547,"data":"           reportes  silencio_medio  positivos_medios  gold  acuerdo_gold\n"}
+,{"stream_name":"stdout","time":50.44460509,"data":"idioma                                                                  \n"}
+,{"stream_name":"stdout","time":50.444609035,"data":"en            1736           0.383             3.619    28         0.812\n"}
+,{"stream_name":"stdout","time":50.444613015,"data":"es             682           0.560             2.123    10         0.842\n"}
+,{"stream_name":"stdout","time":50.444616659,"data":"tr             546           0.703             1.529     6         0.764\n"}
+,{"stream_name":"stdout","time":50.444620509,"data":"hr             407           0.509             3.595     4         0.729\n"}
+,{"stream_name":"stdout","time":50.444626102,"data":"el             321           0.661             2.660     3         0.528\n"}
+,{"stream_name":"stdout","time":50.444629855,"data":"de             262           0.513             2.863     2         0.792\n"}
+,{"stream_name":"stdout","time":50.444633529,"data":"cirílico       220           0.649             2.614     3         0.750\n"}
+,{"stream_name":"stdout","time":50.444639574,"data":"nl             151           0.604             2.762     2         0.625\n"}
+,{"stream_name":"stdout","time":50.444643408,"data":"fr              81           0.294             4.259     0           NaN\n"}
+,{"stream_name":"stdout","time":50.444647187,"data":"otro             1           1.000             0.000     0           NaN\n"}
+,{"stream_name":"stdout","time":157.662046279,"data":"658 volúmenes cargados en RAM en 98s\n"}
+,{"stream_name":"stdout","time":157.662093309,"data":"train 540 | holdout 60 | gold 58\n"}
+,{"stream_name":"stdout","time":157.662100636,"data":"                  train (débil)  holdout (débil)  gold (experto)  gold n positivos\n"}
+,{"stream_name":"stdout","time":157.66212361,"data":"Fracture                  0.128            0.083           0.310              18.0\n"}
+,{"stream_name":"stdout","time":157.662142725,"data":"Contusion                 0.167            0.183           0.328              19.0\n"}
+,{"stream_name":"stdout","time":157.662148247,"data":"MCL                       0.193            0.183           0.155               9.0\n"}
+,{"stream_name":"stdout","time":157.662152954,"data":"Lateral Meniscus          0.202            0.283           0.397              23.0\n"}
+,{"stream_name":"stdout","time":157.662157465,"data":"Synovitis                 0.226            0.217           0.466              27.0\n"}
+,{"stream_name":"stdout","time":157.66216198,"data":"ACL                       0.231            0.317           0.414              24.0\n"}
+,{"stream_name":"stdout","time":157.662166374,"data":"Baker's                   0.283            0.350           0.207              12.0\n"}
+,{"stream_name":"stdout","time":157.662170964,"data":"Lateral OA                0.359            0.500           0.190              11.0\n"}
+,{"stream_name":"stdout","time":157.662175452,"data":"Medial Meniscus           0.415            0.500           0.448              26.0\n"}
+,{"stream_name":"stdout","time":157.662179903,"data":"Medial OA                 0.431            0.450           0.259              15.0\n"}
+,{"stream_name":"stdout","time":157.662184466,"data":"PF OA                     0.481            0.650           0.362              21.0\n"}
+,{"stream_name":"stdout","time":157.66218887,"data":"Effusion                  0.613            0.617           0.603              35.0\n"}
+,{"stream_name":"stdout","time":158.288829951,"data":"scratch: 3.10 M parámetros\n"}
+,{"stream_name":"stdout","time":158.288868211,"data":"resnet18: 13.16 M parámetros\n"}
+,{"stream_name":"stdout","time":158.325079911,"data":"=== A_scratch {'backbone': 'scratch'}\n"}
+,{"stream_name":"stdout","time":182.589221301,"data":"  [A_scratch] ep 0 | loss 0.8359 | AUC holdout 0.6129 | 24s\n"}
+,{"stream_name":"stdout","time":204.698094313,"data":"  [A_scratch] ep 1 | loss 0.8288 | AUC holdout 0.6105 | 46s\n"}
+,{"stream_name":"stdout","time":227.087854865,"data":"  [A_scratch] ep 2 | loss 0.8216 | AUC holdout 0.5989 | 69s\n"}
+,{"stream_name":"stdout","time":249.688818152,"data":"  [A_scratch] ep 3 | loss 0.8122 | AUC holdout 0.6095 | 91s\n"}
+,{"stream_name":"stdout","time":272.843469332,"data":"  [A_scratch] ep 4 | loss 0.8182 | AUC holdout 0.6239 | 114s\n"}
+,{"stream_name":"stdout","time":296.289202485,"data":"  [A_scratch] ep 5 | loss 0.8132 | AUC holdout 0.5758 | 138s\n"}
+,{"stream_name":"stdout","time":320.048222887,"data":"  [A_scratch] ep 6 | loss 0.8057 | AUC holdout 0.6119 | 162s\n"}
+,{"stream_name":"stdout","time":344.162937565,"data":"  [A_scratch] ep 7 | loss 0.7999 | AUC holdout 0.5876 | 186s\n"}
+,{"stream_name":"stdout","time":368.625318879,"data":"  [A_scratch] ep 8 | loss 0.7983 | AUC holdout 0.6035 | 210s\n"}
+,{"stream_name":"stdout","time":393.352707376,"data":"  [A_scratch] ep 9 | loss 0.7921 | AUC holdout 0.5732 | 235s\n"}
+,{"stream_name":"stdout","time":418.329739646,"data":"  [A_scratch] ep 10 | loss 0.7915 | AUC holdout 0.5760 | 260s\n"}
+,{"stream_name":"stdout","time":443.519703175,"data":"  [A_scratch] ep 11 | loss 0.7849 | AUC holdout 0.5656 | 285s\n"}
+,{"stream_name":"stdout","time":468.645653486,"data":"  [A_scratch] ep 12 | loss 0.7798 | AUC holdout 0.5815 | 310s\n"}
+,{"stream_name":"stdout","time":493.918421411,"data":"  [A_scratch] ep 13 | loss 0.7706 | AUC holdout 0.5857 | 336s\n"}
+,{"stream_name":"stdout","time":519.354667871,"data":"  [A_scratch] ep 14 | loss 0.7679 | AUC holdout 0.5819 | 361s\n"}
+,{"stream_name":"stdout","time":522.925039946,"data":"=== A_scratch_s1 {'backbone': 'scratch'}\n"}
+,{"stream_name":"stdout","time":548.687783104,"data":"  [A_scratch_s1] ep 0 | loss 0.8395 | AUC holdout 0.5555 | 26s\n"}
+,{"stream_name":"stdout","time":574.188937626,"data":"  [A_scratch_s1] ep 1 | loss 0.8250 | AUC holdout 0.5806 | 51s\n"}
+,{"stream_name":"stdout","time":599.779922252,"data":"  [A_scratch_s1] ep 2 | loss 0.8193 | AUC holdout 0.6275 | 77s\n"}
+,{"stream_name":"stdout","time":625.195891809,"data":"  [A_scratch_s1] ep 3 | loss 0.8187 | AUC holdout 0.6147 | 102s\n"}
+,{"stream_name":"stdout","time":650.750337579,"data":"  [A_scratch_s1] ep 4 | loss 0.8177 | AUC holdout 0.6279 | 128s\n"}
+,{"stream_name":"stdout","time":676.197564358,"data":"  [A_scratch_s1] ep 5 | loss 0.8101 | AUC holdout 0.5679 | 153s\n"}
+,{"stream_name":"stdout","time":701.716449808,"data":"  [A_scratch_s1] ep 6 | loss 0.8101 | AUC holdout 0.5902 | 179s\n"}
+,{"stream_name":"stdout","time":727.28470427,"data":"  [A_scratch_s1] ep 7 | loss 0.8003 | AUC holdout 0.5827 | 204s\n"}
+,{"stream_name":"stdout","time":752.940945002,"data":"  [A_scratch_s1] ep 8 | loss 0.7954 | AUC holdout 0.5929 | 230s\n"}
+,{"stream_name":"stdout","time":778.649770062,"data":"  [A_scratch_s1] ep 9 | loss 0.7958 | AUC holdout 0.6002 | 256s\n"}
+,{"stream_name":"stdout","time":804.030312863,"data":"  [A_scratch_s1] ep 10 | loss 0.7847 | AUC holdout 0.5959 | 281s\n"}
+,{"stream_name":"stdout","time":829.594315286,"data":"  [A_scratch_s1] ep 11 | loss 0.7811 | AUC holdout 0.6087 | 307s\n"}
+,{"stream_name":"stdout","time":855.573461827,"data":"  [A_scratch_s1] ep 12 | loss 0.7764 | AUC holdout 0.5708 | 333s\n"}
+,{"stream_name":"stdout","time":882.092464638,"data":"  [A_scratch_s1] ep 13 | loss 0.7734 | AUC holdout 0.5832 | 359s\n"}
+,{"stream_name":"stdout","time":907.849891343,"data":"  [A_scratch_s1] ep 14 | loss 0.7691 | AUC holdout 0.5839 | 385s\n"}
+,{"stream_name":"stdout","time":911.438241277,"data":"=== A_scratch_s2 {'backbone': 'scratch'}\n"}
+,{"stream_name":"stdout","time":937.377485537,"data":"  [A_scratch_s2] ep 0 | loss 0.8405 | AUC holdout 0.6037 | 26s\n"}
+,{"stream_name":"stdout","time":963.355625372,"data":"  [A_scratch_s2] ep 1 | loss 0.8268 | AUC holdout 0.5900 | 52s\n"}
+,{"stream_name":"stdout","time":989.083012633,"data":"  [A_scratch_s2] ep 2 | loss 0.8146 | AUC holdout 0.6200 | 78s\n"}
+,{"stream_name":"stdout","time":1014.920774319,"data":"  [A_scratch_s2] ep 3 | loss 0.8084 | AUC holdout 0.6146 | 103s\n"}
+,{"stream_name":"stdout","time":1040.948226635,"data":"  [A_scratch_s2] ep 4 | loss 0.8119 | AUC holdout 0.6032 | 130s\n"}
+,{"stream_name":"stdout","time":1067.017476757,"data":"  [A_scratch_s2] ep 5 | loss 0.8146 | AUC holdout 0.6129 | 156s\n"}
+,{"stream_name":"stdout","time":1092.967914907,"data":"  [A_scratch_s2] ep 6 | loss 0.8013 | AUC holdout 0.6023 | 182s\n"}
+,{"stream_name":"stdout","time":1119.182381735,"data":"  [A_scratch_s2] ep 7 | loss 0.7999 | AUC holdout 0.6052 | 208s\n"}
+,{"stream_name":"stdout","time":1145.450021639,"data":"  [A_scratch_s2] ep 8 | loss 0.7961 | AUC holdout 0.6140 | 234s\n"}
+,{"stream_name":"stdout","time":1171.289664952,"data":"  [A_scratch_s2] ep 9 | loss 0.7897 | AUC holdout 0.6171 | 260s\n"}
+,{"stream_name":"stdout","time":1197.214417671,"data":"  [A_scratch_s2] ep 10 | loss 0.7823 | AUC holdout 0.6219 | 286s\n"}
+,{"stream_name":"stdout","time":1223.239271254,"data":"  [A_scratch_s2] ep 11 | loss 0.7792 | AUC holdout 0.6164 | 312s\n"}
+,{"stream_name":"stdout","time":1248.990239163,"data":"  [A_scratch_s2] ep 12 | loss 0.7799 | AUC holdout 0.6152 | 338s\n"}
+,{"stream_name":"stdout","time":1274.659744722,"data":"  [A_scratch_s2] ep 13 | loss 0.7692 | AUC holdout 0.6088 | 363s\n"}
+,{"stream_name":"stdout","time":1300.659212187,"data":"  [A_scratch_s2] ep 14 | loss 0.7678 | AUC holdout 0.6089 | 389s\n"}
+,{"stream_name":"stdout","time":1304.524572633,"data":"=== B_resnet18 {}\n"}
+,{"stream_name":"stdout","time":1304.524614043,"data":"Downloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth\n"}
+,{"stream_name":"stderr","time":1304.580303079,"data":"\r  0%|          | 0.00/44.7M [00:00\u003c?, ?B/s]\n"}
+,{"stream_name":"stderr","time":1304.687596681,"data":"\r  0%|          | 0.00/44.7M [00:00\u003c?, ?B/s]\r 15%|█▍        | 6.62M/44.7M [00:00\u003c00:00, 68.9MB/s]\n"}
+,{"stream_name":"stderr","time":1304.782681226,"data":"\r 15%|█▍        | 6.62M/44.7M [00:00\u003c00:00, 68.9MB/s]\r 56%|█████▌    | 24.9M/44.7M [00:00\u003c00:00, 140MB/s] \n"}
+,{"stream_name":"stderr","time":1304.881228089,"data":"\r 56%|█████▌    | 24.9M/44.7M [00:00\u003c00:00, 140MB/s] \r100%|██████████| 44.7M/44.7M [00:00\u003c00:00, 156MB/s]\n"}
+,{"stream_name":"stderr","time":1304.8830093,"data":"\r100%|██████████| 44.7M/44.7M [00:00\u003c00:00, 156MB/s]\n"}
+,{"stream_name":"stderr","time":1304.883041573,"data":"\n"}
+,{"stream_name":"stderr","time":1304.883047873,"data":"\n"}
+,{"stream_name":"stdout","time":1328.254121086,"data":"  [B_resnet18] ep 0 | loss 0.8352 | AUC holdout 0.6006 | 23s\n"}
+,{"stream_name":"stdout","time":1351.268056712,"data":"  [B_resnet18] ep 1 | loss 0.8058 | AUC holdout 0.5767 | 46s\n"}
+,{"stream_name":"stdout","time":1374.504277773,"data":"  [B_resnet18] ep 2 | loss 0.7784 | AUC holdout 0.6224 | 70s\n"}
+,{"stream_name":"stdout","time":1397.620768188,"data":"  [B_resnet18] ep 3 | loss 0.7530 | AUC holdout 0.6539 | 93s\n"}
+,{"stream_name":"stdout","time":1420.605114707,"data":"  [B_resnet18] ep 4 | loss 0.7249 | AUC holdout 0.6700 | 116s\n"}
+,{"stream_name":"stdout","time":1443.575680231,"data":"  [B_resnet18] ep 5 | loss 0.7103 | AUC holdout 0.6543 | 139s\n"}
+,{"stream_name":"stdout","time":1466.659900524,"data":"  [B_resnet18] ep 6 | loss 0.7120 | AUC holdout 0.6830 | 162s\n"}
+,{"stream_name":"stdout","time":1489.760606919,"data":"  [B_resnet18] ep 7 | loss 0.6738 | AUC holdout 0.6899 | 185s\n"}
+,{"stream_name":"stdout","time":1512.799320451,"data":"  [B_resnet18] ep 8 | loss 0.6505 | AUC holdout 0.6913 | 208s\n"}
+,{"stream_name":"stdout","time":1535.916888997,"data":"  [B_resnet18] ep 9 | loss 0.6255 | AUC holdout 0.7052 | 231s\n"}
+,{"stream_name":"stdout","time":1559.046457901,"data":"  [B_resnet18] ep 10 | loss 0.6003 | AUC holdout 0.7079 | 254s\n"}
+,{"stream_name":"stdout","time":1583.248647183,"data":"  [B_resnet18] ep 11 | loss 0.5920 | AUC holdout 0.6970 | 278s\n"}
+,{"stream_name":"stdout","time":1608.87895506,"data":"  [B_resnet18] ep 12 | loss 0.5653 | AUC holdout 0.6987 | 304s\n"}
+,{"stream_name":"stdout","time":1633.295658669,"data":"  [B_resnet18] ep 13 | loss 0.5597 | AUC holdout 0.7007 | 328s\n"}
+,{"stream_name":"stdout","time":1657.811895469,"data":"  [B_resnet18] ep 14 | loss 0.5569 | AUC holdout 0.6995 | 353s\n"}
+,{"stream_name":"stdout","time":1661.927579063,"data":"=== B_resnet18_s1 {}\n"}
+,{"stream_name":"stdout","time":1686.834622554,"data":"  [B_resnet18_s1] ep 0 | loss 0.8323 | AUC holdout 0.5992 | 25s\n"}
+,{"stream_name":"stdout","time":1711.692955735,"data":"  [B_resnet18_s1] ep 1 | loss 0.8035 | AUC holdout 0.6045 | 50s\n"}
+,{"stream_name":"stdout","time":1736.56870352,"data":"  [B_resnet18_s1] ep 2 | loss 0.7738 | AUC holdout 0.6529 | 75s\n"}
+,{"stream_name":"stdout","time":1761.376050429,"data":"  [B_resnet18_s1] ep 3 | loss 0.7679 | AUC holdout 0.6593 | 99s\n"}
+,{"stream_name":"stdout","time":1785.731944091,"data":"  [B_resnet18_s1] ep 4 | loss 0.7336 | AUC holdout 0.6536 | 124s\n"}
+,{"stream_name":"stdout","time":1809.925686581,"data":"  [B_resnet18_s1] ep 5 | loss 0.6961 | AUC holdout 0.6871 | 148s\n"}
+,{"stream_name":"stdout","time":1834.056220963,"data":"  [B_resnet18_s1] ep 6 | loss 0.6952 | AUC holdout 0.6952 | 172s\n"}
+,{"stream_name":"stdout","time":1857.958259181,"data":"  [B_resnet18_s1] ep 7 | loss 0.6678 | AUC holdout 0.7146 | 196s\n"}
+,{"stream_name":"stdout","time":1881.648738332,"data":"  [B_resnet18_s1] ep 8 | loss 0.6325 | AUC holdout 0.6857 | 220s\n"}
+,{"stream_name":"stdout","time":1905.283149074,"data":"  [B_resnet18_s1] ep 9 | loss 0.6108 | AUC holdout 0.6885 | 243s\n"}
+,{"stream_name":"stdout","time":1928.951826351,"data":"  [B_resnet18_s1] ep 10 | loss 0.6000 | AUC holdout 0.6953 | 267s\n"}
+,{"stream_name":"stdout","time":1952.739533082,"data":"  [B_resnet18_s1] ep 11 | loss 0.5797 | AUC holdout 0.6894 | 291s\n"}
+,{"stream_name":"stdout","time":1976.243496651,"data":"  [B_resnet18_s1] ep 12 | loss 0.5636 | AUC holdout 0.6895 | 314s\n"}
+,{"stream_name":"stdout","time":1999.718026223,"data":"  [B_resnet18_s1] ep 13 | loss 0.5565 | AUC holdout 0.6893 | 338s\n"}
+,{"stream_name":"stdout","time":2023.182940871,"data":"  [B_resnet18_s1] ep 14 | loss 0.5548 | AUC holdout 0.6923 | 361s\n"}
+,{"stream_name":"stdout","time":2027.029004774,"data":"=== B_resnet18_s2 {}\n"}
+,{"stream_name":"stdout","time":2050.327098032,"data":"  [B_resnet18_s2] ep 0 | loss 0.8322 | AUC holdout 0.6068 | 23s\n"}
+,{"stream_name":"stdout","time":2073.949233063,"data":"  [B_resnet18_s2] ep 1 | loss 0.7955 | AUC holdout 0.6523 | 47s\n"}
+,{"stream_name":"stdout","time":2097.387004874,"data":"  [B_resnet18_s2] ep 2 | loss 0.7739 | AUC holdout 0.6331 | 70s\n"}
+,{"stream_name":"stdout","time":2120.735706237,"data":"  [B_resnet18_s2] ep 3 | loss 0.7553 | AUC holdout 0.6637 | 94s\n"}
+,{"stream_name":"stdout","time":2144.100542996,"data":"  [B_resnet18_s2] ep 4 | loss 0.7471 | AUC holdout 0.6745 | 117s\n"}
+,{"stream_name":"stdout","time":2167.489660947,"data":"  [B_resnet18_s2] ep 5 | loss 0.7080 | AUC holdout 0.6650 | 140s\n"}
+,{"stream_name":"stdout","time":2190.88664174,"data":"  [B_resnet18_s2] ep 6 | loss 0.6896 | AUC holdout 0.6874 | 164s\n"}
+,{"stream_name":"stdout","time":2214.400554373,"data":"  [B_resnet18_s2] ep 7 | loss 0.6664 | AUC holdout 0.6858 | 187s\n"}
+,{"stream_name":"stdout","time":2237.847099872,"data":"  [B_resnet18_s2] ep 8 | loss 0.6455 | AUC holdout 0.6887 | 211s\n"}
+,{"stream_name":"stdout","time":2261.224459849,"data":"  [B_resnet18_s2] ep 9 | loss 0.6163 | AUC holdout 0.6824 | 234s\n"}
+,{"stream_name":"stdout","time":2284.752122098,"data":"  [B_resnet18_s2] ep 10 | loss 0.6100 | AUC holdout 0.6842 | 258s\n"}
+,{"stream_name":"stdout","time":2308.071456685,"data":"  [B_resnet18_s2] ep 11 | loss 0.5856 | AUC holdout 0.6805 | 281s\n"}
+,{"stream_name":"stdout","time":2331.277841732,"data":"  [B_resnet18_s2] ep 12 | loss 0.5742 | AUC holdout 0.6853 | 304s\n"}
+,{"stream_name":"stdout","time":2354.785962456,"data":"  [B_resnet18_s2] ep 13 | loss 0.5610 | AUC holdout 0.6874 | 328s\n"}
+,{"stream_name":"stdout","time":2378.074752381,"data":"  [B_resnet18_s2] ep 14 | loss 0.5584 | AUC holdout 0.6873 | 351s\n"}
+,{"stream_name":"stdout","time":2381.924696213,"data":"=== C_focal {'loss': 'focal'}\n"}
+,{"stream_name":"stdout","time":2405.176982954,"data":"  [C_focal] ep 0 | loss 0.2129 | AUC holdout 0.6009 | 23s\n"}
+,{"stream_name":"stdout","time":2428.625342596,"data":"  [C_focal] ep 1 | loss 0.2030 | AUC holdout 0.6204 | 47s\n"}
+,{"stream_name":"stdout","time":2451.976067028,"data":"  [C_focal] ep 2 | loss 0.1946 | AUC holdout 0.6420 | 70s\n"}
+,{"stream_name":"stdout","time":2475.403071522,"data":"  [C_focal] ep 3 | loss 0.1884 | AUC holdout 0.6889 | 93s\n"}
+,{"stream_name":"stdout","time":2498.687856442,"data":"  [C_focal] ep 4 | loss 0.1802 | AUC holdout 0.6719 | 117s\n"}
+,{"stream_name":"stdout","time":2521.85867214,"data":"  [C_focal] ep 5 | loss 0.1798 | AUC holdout 0.6641 | 140s\n"}
+,{"stream_name":"stdout","time":2545.198996342,"data":"  [C_focal] ep 6 | loss 0.1755 | AUC holdout 0.6698 | 163s\n"}
+,{"stream_name":"stdout","time":2568.924967185,"data":"  [C_focal] ep 7 | loss 0.1709 | AUC holdout 0.6926 | 187s\n"}
+,{"stream_name":"stdout","time":2592.283097279,"data":"  [C_focal] ep 8 | loss 0.1592 | AUC holdout 0.6855 | 210s\n"}
+,{"stream_name":"stdout","time":2615.548442322,"data":"  [C_focal] ep 9 | loss 0.1519 | AUC holdout 0.6785 | 234s\n"}
+,{"stream_name":"stdout","time":2639.190016424,"data":"  [C_focal] ep 10 | loss 0.1420 | AUC holdout 0.6919 | 257s\n"}
+,{"stream_name":"stdout","time":2662.853073052,"data":"  [C_focal] ep 11 | loss 0.1365 | AUC holdout 0.6848 | 281s\n"}
+,{"stream_name":"stdout","time":2686.201984243,"data":"  [C_focal] ep 12 | loss 0.1296 | AUC holdout 0.6880 | 304s\n"}
+,{"stream_name":"stdout","time":2709.336915507,"data":"  [C_focal] ep 13 | loss 0.1252 | AUC holdout 0.6841 | 327s\n"}
+,{"stream_name":"stdout","time":2732.699256515,"data":"  [C_focal] ep 14 | loss 0.1247 | AUC holdout 0.6840 | 351s\n"}
+,{"stream_name":"stdout","time":2736.515176438,"data":"=== C_focal_s1 {'loss': 'focal'}\n"}
+,{"stream_name":"stdout","time":2759.836531353,"data":"  [C_focal_s1] ep 0 | loss 0.2120 | AUC holdout 0.6031 | 23s\n"}
+,{"stream_name":"stdout","time":2783.06076881,"data":"  [C_focal_s1] ep 1 | loss 0.2038 | AUC holdout 0.5735 | 47s\n"}
+,{"stream_name":"stdout","time":2806.254649494,"data":"  [C_focal_s1] ep 2 | loss 0.1970 | AUC holdout 0.6675 | 70s\n"}
+,{"stream_name":"stdout","time":2829.391141374,"data":"  [C_focal_s1] ep 3 | loss 0.1929 | AUC holdout 0.6455 | 93s\n"}
+,{"stream_name":"stdout","time":2852.801123054,"data":"  [C_focal_s1] ep 4 | loss 0.1856 | AUC holdout 0.6793 | 116s\n"}
+,{"stream_name":"stdout","time":2876.113494071,"data":"  [C_focal_s1] ep 5 | loss 0.1783 | AUC holdout 0.6792 | 140s\n"}
+,{"stream_name":"stdout","time":2899.489718818,"data":"  [C_focal_s1] ep 6 | loss 0.1755 | AUC holdout 0.6755 | 163s\n"}
+,{"stream_name":"stdout","time":2922.888126997,"data":"  [C_focal_s1] ep 7 | loss 0.1671 | AUC holdout 0.7191 | 186s\n"}
+,{"stream_name":"stdout","time":2945.962731907,"data":"  [C_focal_s1] ep 8 | loss 0.1590 | AUC holdout 0.6985 | 209s\n"}
+,{"stream_name":"stdout","time":2969.351406456,"data":"  [C_focal_s1] ep 9 | loss 0.1498 | AUC holdout 0.6997 | 233s\n"}
+,{"stream_name":"stdout","time":2993.015639087,"data":"  [C_focal_s1] ep 10 | loss 0.1453 | AUC holdout 0.6991 | 256s\n"}
+,{"stream_name":"stdout","time":3016.587308603,"data":"  [C_focal_s1] ep 11 | loss 0.1372 | AUC holdout 0.7174 | 280s\n"}
+,{"stream_name":"stdout","time":3039.92149452,"data":"  [C_focal_s1] ep 12 | loss 0.1315 | AUC holdout 0.7046 | 303s\n"}
+,{"stream_name":"stdout","time":3063.769426015,"data":"  [C_focal_s1] ep 13 | loss 0.1287 | AUC holdout 0.7033 | 327s\n"}
+,{"stream_name":"stdout","time":3087.356869174,"data":"  [C_focal_s1] ep 14 | loss 0.1257 | AUC holdout 0.7049 | 351s\n"}
+,{"stream_name":"stdout","time":3091.273835527,"data":"=== C_focal_s2 {'loss': 'focal'}\n"}
+,{"stream_name":"stdout","time":3114.500750703,"data":"  [C_focal_s2] ep 0 | loss 0.2108 | AUC holdout 0.6131 | 23s\n"}
+,{"stream_name":"stdout","time":3138.396658836,"data":"  [C_focal_s2] ep 1 | loss 0.2016 | AUC holdout 0.6602 | 47s\n"}
+,{"stream_name":"stdout","time":3161.948447154,"data":"  [C_focal_s2] ep 2 | loss 0.1942 | AUC holdout 0.6254 | 70s\n"}
+,{"stream_name":"stdout","time":3184.814974252,"data":"  [C_focal_s2] ep 3 | loss 0.1901 | AUC holdout 0.6776 | 93s\n"}
+,{"stream_name":"stdout","time":3208.083969062,"data":"  [C_focal_s2] ep 4 | loss 0.1845 | AUC holdout 0.6474 | 117s\n"}
+,{"stream_name":"stdout","time":3231.625748976,"data":"  [C_focal_s2] ep 5 | loss 0.1746 | AUC holdout 0.6923 | 140s\n"}
+,{"stream_name":"stdout","time":3255.428482202,"data":"  [C_focal_s2] ep 6 | loss 0.1703 | AUC holdout 0.6950 | 164s\n"}
+,{"stream_name":"stdout","time":3278.792139837,"data":"  [C_focal_s2] ep 7 | loss 0.1664 | AUC holdout 0.6885 | 187s\n"}
+,{"stream_name":"stdout","time":3301.979996907,"data":"  [C_focal_s2] ep 8 | loss 0.1602 | AUC holdout 0.7055 | 211s\n"}
+,{"stream_name":"stdout","time":3325.279138129,"data":"  [C_focal_s2] ep 9 | loss 0.1500 | AUC holdout 0.7143 | 234s\n"}
+,{"stream_name":"stdout","time":3348.659305688,"data":"  [C_focal_s2] ep 10 | loss 0.1449 | AUC holdout 0.7129 | 257s\n"}
+,{"stream_name":"stdout","time":3371.813372803,"data":"  [C_focal_s2] ep 11 | loss 0.1360 | AUC holdout 0.7049 | 280s\n"}
+,{"stream_name":"stdout","time":3395.004249192,"data":"  [C_focal_s2] ep 12 | loss 0.1326 | AUC holdout 0.7048 | 304s\n"}
+,{"stream_name":"stdout","time":3418.334397961,"data":"  [C_focal_s2] ep 13 | loss 0.1291 | AUC holdout 0.6994 | 327s\n"}
+,{"stream_name":"stdout","time":3441.701883719,"data":"  [C_focal_s2] ep 14 | loss 0.1273 | AUC holdout 0.7006 | 350s\n"}
+,{"stream_name":"stdout","time":3445.539620155,"data":"=== D_confident {'labels': 'confident'}\n"}
+,{"stream_name":"stdout","time":3469.079224612,"data":"  [D_confident] ep 0 | loss 0.7525 | AUC holdout 0.5304 | 24s\n"}
+,{"stream_name":"stdout","time":3494.920427667,"data":"  [D_confident] ep 1 | loss 0.7208 | AUC holdout 0.5497 | 49s\n"}
+,{"stream_name":"stdout","time":3519.720500839,"data":"  [D_confident] ep 2 | loss 0.6723 | AUC holdout 0.5724 | 74s\n"}
+,{"stream_name":"stdout","time":3543.936743003,"data":"  [D_confident] ep 3 | loss 0.6506 | AUC holdout 0.6174 | 98s\n"}
+,{"stream_name":"stdout","time":3568.668085141,"data":"  [D_confident] ep 4 | loss 0.6303 | AUC holdout 0.6223 | 123s\n"}
+,{"stream_name":"stdout","time":3593.614737531,"data":"  [D_confident] ep 5 | loss 0.6175 | AUC holdout 0.6025 | 148s\n"}
+,{"stream_name":"stdout","time":3618.250194163,"data":"  [D_confident] ep 6 | loss 0.6049 | AUC holdout 0.6186 | 173s\n"}
+,{"stream_name":"stdout","time":3642.890782768,"data":"  [D_confident] ep 7 | loss 0.5657 | AUC holdout 0.6346 | 197s\n"}
+,{"stream_name":"stdout","time":3667.499719505,"data":"  [D_confident] ep 8 | loss 0.5429 | AUC holdout 0.6131 | 222s\n"}
+,{"stream_name":"stdout","time":3692.362720133,"data":"  [D_confident] ep 9 | loss 0.5172 | AUC holdout 0.6269 | 247s\n"}
+,{"stream_name":"stdout","time":3717.037867751,"data":"  [D_confident] ep 10 | loss 0.4868 | AUC holdout 0.6407 | 271s\n"}
+,{"stream_name":"stdout","time":3741.185705701,"data":"  [D_confident] ep 11 | loss 0.4774 | AUC holdout 0.6381 | 296s\n"}
+,{"stream_name":"stdout","time":3764.888886795,"data":"  [D_confident] ep 12 | loss 0.4431 | AUC holdout 0.6381 | 319s\n"}
+,{"stream_name":"stdout","time":3788.676840671,"data":"  [D_confident] ep 13 | loss 0.4353 | AUC holdout 0.6431 | 343s\n"}
+,{"stream_name":"stdout","time":3812.448427274,"data":"  [D_confident] ep 14 | loss 0.4351 | AUC holdout 0.6410 | 367s\n"}
+,{"stream_name":"stdout","time":3816.315512726,"data":"=== D_confident_s1 {'labels': 'confident'}\n"}
+,{"stream_name":"stdout","time":3839.957758091,"data":"  [D_confident_s1] ep 0 | loss 0.7443 | AUC holdout 0.5701 | 24s\n"}
+,{"stream_name":"stdout","time":3863.898126046,"data":"  [D_confident_s1] ep 1 | loss 0.7023 | AUC holdout 0.5705 | 48s\n"}
+,{"stream_name":"stdout","time":3887.26961481,"data":"  [D_confident_s1] ep 2 | loss 0.6805 | AUC holdout 0.5793 | 71s\n"}
+,{"stream_name":"stdout","time":3911.051840251,"data":"  [D_confident_s1] ep 3 | loss 0.6579 | AUC holdout 0.5843 | 95s\n"}
+,{"stream_name":"stdout","time":3936.762780194,"data":"  [D_confident_s1] ep 4 | loss 0.6227 | AUC holdout 0.6107 | 120s\n"}
+,{"stream_name":"stdout","time":3961.279915139,"data":"  [D_confident_s1] ep 5 | loss 0.5896 | AUC holdout 0.6265 | 145s\n"}
+,{"stream_name":"stdout","time":3984.846047155,"data":"  [D_confident_s1] ep 6 | loss 0.5829 | AUC holdout 0.6170 | 168s\n"}
+,{"stream_name":"stdout","time":4008.910912699,"data":"  [D_confident_s1] ep 7 | loss 0.5592 | AUC holdout 0.6362 | 193s\n"}
+,{"stream_name":"stdout","time":4033.043998666,"data":"  [D_confident_s1] ep 8 | loss 0.5339 | AUC holdout 0.6308 | 217s\n"}
+,{"stream_name":"stdout","time":4056.724745257,"data":"  [D_confident_s1] ep 9 | loss 0.4915 | AUC holdout 0.6417 | 240s\n"}
+,{"stream_name":"stdout","time":4080.210809026,"data":"  [D_confident_s1] ep 10 | loss 0.4832 | AUC holdout 0.6474 | 264s\n"}
+,{"stream_name":"stdout","time":4103.856384381,"data":"  [D_confident_s1] ep 11 | loss 0.4495 | AUC holdout 0.6499 | 288s\n"}
+,{"stream_name":"stdout","time":4127.459782722,"data":"  [D_confident_s1] ep 12 | loss 0.4315 | AUC holdout 0.6402 | 311s\n"}
+,{"stream_name":"stdout","time":4150.953530141,"data":"  [D_confident_s1] ep 13 | loss 0.4223 | AUC holdout 0.6455 | 335s\n"}
+,{"stream_name":"stdout","time":4174.324147664,"data":"  [D_confident_s1] ep 14 | loss 0.4261 | AUC holdout 0.6471 | 358s\n"}
+,{"stream_name":"stdout","time":4178.14404366,"data":"=== D_confident_s2 {'labels': 'confident'}\n"}
+,{"stream_name":"stdout","time":4201.443891817,"data":"  [D_confident_s2] ep 0 | loss 0.7439 | AUC holdout 0.5658 | 23s\n"}
+,{"stream_name":"stdout","time":4224.915003414,"data":"  [D_confident_s2] ep 1 | loss 0.7026 | AUC holdout 0.5845 | 47s\n"}
+,{"stream_name":"stdout","time":4248.211385041,"data":"  [D_confident_s2] ep 2 | loss 0.6736 | AUC holdout 0.5917 | 70s\n"}
+,{"stream_name":"stdout","time":4271.609205362,"data":"  [D_confident_s2] ep 3 | loss 0.6408 | AUC holdout 0.6199 | 93s\n"}
+,{"stream_name":"stdout","time":4294.905163677,"data":"  [D_confident_s2] ep 4 | loss 0.6282 | AUC holdout 0.6151 | 117s\n"}
+,{"stream_name":"stdout","time":4318.510983839,"data":"  [D_confident_s2] ep 5 | loss 0.5843 | AUC holdout 0.6026 | 140s\n"}
+,{"stream_name":"stdout","time":4342.319762613,"data":"  [D_confident_s2] ep 6 | loss 0.5611 | AUC holdout 0.6152 | 164s\n"}
+,{"stream_name":"stdout","time":4366.025649389,"data":"  [D_confident_s2] ep 7 | loss 0.5381 | AUC holdout 0.6491 | 188s\n"}
+,{"stream_name":"stdout","time":4389.267781729,"data":"  [D_confident_s2] ep 8 | loss 0.5144 | AUC holdout 0.6399 | 211s\n"}
+,{"stream_name":"stdout","time":4413.043849941,"data":"  [D_confident_s2] ep 9 | loss 0.4972 | AUC holdout 0.6578 | 235s\n"}
+,{"stream_name":"stdout","time":4436.873024731,"data":"  [D_confident_s2] ep 10 | loss 0.4657 | AUC holdout 0.6562 | 259s\n"}
+,{"stream_name":"stdout","time":4460.355741904,"data":"  [D_confident_s2] ep 11 | loss 0.4433 | AUC holdout 0.6559 | 282s\n"}
+,{"stream_name":"stdout","time":4483.87780253,"data":"  [D_confident_s2] ep 12 | loss 0.4291 | AUC holdout 0.6651 | 306s\n"}
+,{"stream_name":"stdout","time":4507.822571816,"data":"  [D_confident_s2] ep 13 | loss 0.4280 | AUC holdout 0.6572 | 330s\n"}
+,{"stream_name":"stdout","time":4531.601186025,"data":"  [D_confident_s2] ep 14 | loss 0.4174 | AUC holdout 0.6587 | 353s\n"}
+,{"stream_name":"stdout","time":4535.559178965,"data":"=== E_sagittal {'planes': [0]}\n"}
+,{"stream_name":"stdout","time":4543.84821141,"data":"  [E_sagittal] ep 0 | loss 0.8377 | AUC holdout 0.5992 | 8s\n"}
+,{"stream_name":"stdout","time":4551.864473528,"data":"  [E_sagittal] ep 1 | loss 0.8041 | AUC holdout 0.5848 | 16s\n"}
+,{"stream_name":"stdout","time":4559.891153823,"data":"  [E_sagittal] ep 2 | loss 0.7772 | AUC holdout 0.6218 | 24s\n"}
+,{"stream_name":"stdout","time":4567.988108922,"data":"  [E_sagittal] ep 3 | loss 0.7443 | AUC holdout 0.6616 | 32s\n"}
+,{"stream_name":"stdout","time":4576.03390637,"data":"  [E_sagittal] ep 4 | loss 0.7270 | AUC holdout 0.6573 | 40s\n"}
+,{"stream_name":"stdout","time":4584.103394509,"data":"  [E_sagittal] ep 5 | loss 0.7153 | AUC holdout 0.6666 | 49s\n"}
+,{"stream_name":"stdout","time":4592.148741529,"data":"  [E_sagittal] ep 6 | loss 0.6950 | AUC holdout 0.7058 | 57s\n"}
+,{"stream_name":"stdout","time":4600.075607645,"data":"  [E_sagittal] ep 7 | loss 0.6629 | AUC holdout 0.7011 | 64s\n"}
+,{"stream_name":"stdout","time":4607.995976543,"data":"  [E_sagittal] ep 8 | loss 0.6339 | AUC holdout 0.6988 | 72s\n"}
+,{"stream_name":"stdout","time":4615.868789535,"data":"  [E_sagittal] ep 9 | loss 0.6058 | AUC holdout 0.7030 | 80s\n"}
+,{"stream_name":"stdout","time":4623.874219173,"data":"  [E_sagittal] ep 10 | loss 0.5815 | AUC holdout 0.7083 | 88s\n"}
+,{"stream_name":"stdout","time":4632.008585649,"data":"  [E_sagittal] ep 11 | loss 0.5763 | AUC holdout 0.7078 | 96s\n"}
+,{"stream_name":"stdout","time":4640.442599037,"data":"  [E_sagittal] ep 12 | loss 0.5457 | AUC holdout 0.7011 | 105s\n"}
+,{"stream_name":"stdout","time":4649.240705335,"data":"  [E_sagittal] ep 13 | loss 0.5515 | AUC holdout 0.7086 | 114s\n"}
+,{"stream_name":"stdout","time":4658.206039127,"data":"  [E_sagittal] ep 14 | loss 0.5410 | AUC holdout 0.7087 | 123s\n"}
+,{"stream_name":"stdout","time":4659.95407005,"data":"=== E_sagittal_s1 {'planes': [0]}\n"}
+,{"stream_name":"stdout","time":4668.435888729,"data":"  [E_sagittal_s1] ep 0 | loss 0.8356 | AUC holdout 0.6375 | 8s\n"}
+,{"stream_name":"stdout","time":4676.644683211,"data":"  [E_sagittal_s1] ep 1 | loss 0.8087 | AUC holdout 0.5758 | 17s\n"}
+,{"stream_name":"stdout","time":4684.707071168,"data":"  [E_sagittal_s1] ep 2 | loss 0.7756 | AUC holdout 0.6545 | 25s\n"}
+,{"stream_name":"stdout","time":4692.601018974,"data":"  [E_sagittal_s1] ep 3 | loss 0.7620 | AUC holdout 0.6232 | 33s\n"}
+,{"stream_name":"stdout","time":4700.640335939,"data":"  [E_sagittal_s1] ep 4 | loss 0.7291 | AUC holdout 0.6764 | 41s\n"}
+,{"stream_name":"stdout","time":4708.60510624,"data":"  [E_sagittal_s1] ep 5 | loss 0.7008 | AUC holdout 0.6732 | 49s\n"}
+,{"stream_name":"stdout","time":4716.58378425,"data":"  [E_sagittal_s1] ep 6 | loss 0.6972 | AUC holdout 0.6731 | 57s\n"}
+,{"stream_name":"stdout","time":4724.705531765,"data":"  [E_sagittal_s1] ep 7 | loss 0.6564 | AUC holdout 0.7004 | 65s\n"}
+,{"stream_name":"stdout","time":4732.885701229,"data":"  [E_sagittal_s1] ep 8 | loss 0.6308 | AUC holdout 0.7187 | 73s\n"}
+,{"stream_name":"stdout","time":4740.982394097,"data":"  [E_sagittal_s1] ep 9 | loss 0.6067 | AUC holdout 0.7106 | 81s\n"}
+,{"stream_name":"stdout","time":4749.188276348,"data":"  [E_sagittal_s1] ep 10 | loss 0.5771 | AUC holdout 0.7295 | 89s\n"}
+,{"stream_name":"stdout","time":4757.24163887,"data":"  [E_sagittal_s1] ep 11 | loss 0.5590 | AUC holdout 0.7248 | 97s\n"}
+,{"stream_name":"stdout","time":4765.276162272,"data":"  [E_sagittal_s1] ep 12 | loss 0.5371 | AUC holdout 0.7231 | 105s\n"}
+,{"stream_name":"stdout","time":4773.300706638,"data":"  [E_sagittal_s1] ep 13 | loss 0.5273 | AUC holdout 0.7205 | 113s\n"}
+,{"stream_name":"stdout","time":4781.268459803,"data":"  [E_sagittal_s1] ep 14 | loss 0.5270 | AUC holdout 0.7191 | 121s\n"}
+,{"stream_name":"stdout","time":4782.944494943,"data":"=== E_sagittal_s2 {'planes': [0]}\n"}
+,{"stream_name":"stdout","time":4790.996966417,"data":"  [E_sagittal_s2] ep 0 | loss 0.8390 | AUC holdout 0.5968 | 8s\n"}
+,{"stream_name":"stdout","time":4799.041456038,"data":"  [E_sagittal_s2] ep 1 | loss 0.8042 | AUC holdout 0.6301 | 16s\n"}
+,{"stream_name":"stdout","time":4807.083914415,"data":"  [E_sagittal_s2] ep 2 | loss 0.7801 | AUC holdout 0.6433 | 24s\n"}
+,{"stream_name":"stdout","time":4815.159172733,"data":"  [E_sagittal_s2] ep 3 | loss 0.7612 | AUC holdout 0.6479 | 32s\n"}
+,{"stream_name":"stdout","time":4823.228467792,"data":"  [E_sagittal_s2] ep 4 | loss 0.7452 | AUC holdout 0.6625 | 40s\n"}
+,{"stream_name":"stdout","time":4831.173138703,"data":"  [E_sagittal_s2] ep 5 | loss 0.7010 | AUC holdout 0.6482 | 48s\n"}
+,{"stream_name":"stdout","time":4839.206092076,"data":"  [E_sagittal_s2] ep 6 | loss 0.6900 | AUC holdout 0.6872 | 56s\n"}
+,{"stream_name":"stdout","time":4847.237855157,"data":"  [E_sagittal_s2] ep 7 | loss 0.6592 | AUC holdout 0.7059 | 64s\n"}
+,{"stream_name":"stdout","time":4855.151328482,"data":"  [E_sagittal_s2] ep 8 | loss 0.6382 | AUC holdout 0.6915 | 72s\n"}
+,{"stream_name":"stdout","time":4863.116496889,"data":"  [E_sagittal_s2] ep 9 | loss 0.6105 | AUC holdout 0.6915 | 80s\n"}
+,{"stream_name":"stdout","time":4871.129147141,"data":"  [E_sagittal_s2] ep 10 | loss 0.5914 | AUC holdout 0.6784 | 88s\n"}
+,{"stream_name":"stdout","time":4879.021782729,"data":"  [E_sagittal_s2] ep 11 | loss 0.5662 | AUC holdout 0.6903 | 96s\n"}
+,{"stream_name":"stdout","time":4886.995547664,"data":"  [E_sagittal_s2] ep 12 | loss 0.5663 | AUC holdout 0.6879 | 104s\n"}
+,{"stream_name":"stdout","time":4894.912497838,"data":"  [E_sagittal_s2] ep 13 | loss 0.5451 | AUC holdout 0.6906 | 112s\n"}
+,{"stream_name":"stdout","time":4902.895616561,"data":"  [E_sagittal_s2] ep 14 | loss 0.5518 | AUC holdout 0.6915 | 120s\n"}
+,{"stream_name":"stdout","time":4904.573542141,"data":"=== F_sin_posweight {'pos_weight': False}\n"}
+,{"stream_name":"stdout","time":4927.778569296,"data":"  [F_sin_posweight] ep 0 | loss 0.6564 | AUC holdout 0.6326 | 23s\n"}
+,{"stream_name":"stdout","time":4950.82727718,"data":"  [F_sin_posweight] ep 1 | loss 0.6351 | AUC holdout 0.6125 | 46s\n"}
+,{"stream_name":"stdout","time":4973.920258732,"data":"  [F_sin_posweight] ep 2 | loss 0.6077 | AUC holdout 0.6467 | 69s\n"}
+,{"stream_name":"stdout","time":4996.932893937,"data":"  [F_sin_posweight] ep 3 | loss 0.5935 | AUC holdout 0.6603 | 92s\n"}
+,{"stream_name":"stdout","time":5020.240410512,"data":"  [F_sin_posweight] ep 4 | loss 0.5751 | AUC holdout 0.6759 | 116s\n"}
+,{"stream_name":"stdout","time":5043.524419004,"data":"  [F_sin_posweight] ep 5 | loss 0.5647 | AUC holdout 0.6591 | 139s\n"}
+,{"stream_name":"stdout","time":5066.629319047,"data":"  [F_sin_posweight] ep 6 | loss 0.5616 | AUC holdout 0.6669 | 162s\n"}
+,{"stream_name":"stdout","time":5089.826415946,"data":"  [F_sin_posweight] ep 7 | loss 0.5343 | AUC holdout 0.6501 | 185s\n"}
+,{"stream_name":"stdout","time":5112.913709782,"data":"  [F_sin_posweight] ep 8 | loss 0.5188 | AUC holdout 0.6707 | 208s\n"}
+,{"stream_name":"stdout","time":5136.412013093,"data":"  [F_sin_posweight] ep 9 | loss 0.4971 | AUC holdout 0.6712 | 232s\n"}
+,{"stream_name":"stdout","time":5160.017843234,"data":"  [F_sin_posweight] ep 10 | loss 0.4711 | AUC holdout 0.6680 | 255s\n"}
+,{"stream_name":"stdout","time":5183.389628465,"data":"  [F_sin_posweight] ep 11 | loss 0.4662 | AUC holdout 0.6698 | 279s\n"}
+,{"stream_name":"stdout","time":5206.83731494,"data":"  [F_sin_posweight] ep 12 | loss 0.4502 | AUC holdout 0.6710 | 302s\n"}
+,{"stream_name":"stdout","time":5230.330376825,"data":"  [F_sin_posweight] ep 13 | loss 0.4431 | AUC holdout 0.6771 | 326s\n"}
+,{"stream_name":"stdout","time":5253.711116601,"data":"  [F_sin_posweight] ep 14 | loss 0.4358 | AUC holdout 0.6749 | 349s\n"}
+,{"stream_name":"stdout","time":5257.563083462,"data":"=== F_sin_posweight_s1 {'pos_weight': False}\n"}
+,{"stream_name":"stdout","time":5280.925206626,"data":"  [F_sin_posweight_s1] ep 0 | loss 0.6598 | AUC holdout 0.5665 | 23s\n"}
+,{"stream_name":"stdout","time":5304.361659228,"data":"  [F_sin_posweight_s1] ep 1 | loss 0.6311 | AUC holdout 0.6476 | 47s\n"}
+,{"stream_name":"stdout","time":5327.897919345,"data":"  [F_sin_posweight_s1] ep 2 | loss 0.6129 | AUC holdout 0.6480 | 70s\n"}
+,{"stream_name":"stdout","time":5351.126913548,"data":"  [F_sin_posweight_s1] ep 3 | loss 0.6003 | AUC holdout 0.6422 | 94s\n"}
+,{"stream_name":"stdout","time":5375.913424305,"data":"  [F_sin_posweight_s1] ep 4 | loss 0.5891 | AUC holdout 0.6732 | 118s\n"}
+,{"stream_name":"stdout","time":5401.338528858,"data":"  [F_sin_posweight_s1] ep 5 | loss 0.5540 | AUC holdout 0.6855 | 144s\n"}
+,{"stream_name":"stdout","time":5425.7288883,"data":"  [F_sin_posweight_s1] ep 6 | loss 0.5485 | AUC holdout 0.6666 | 168s\n"}
+,{"stream_name":"stdout","time":5450.167407626,"data":"  [F_sin_posweight_s1] ep 7 | loss 0.5308 | AUC holdout 0.6916 | 193s\n"}
+,{"stream_name":"stdout","time":5475.13156344,"data":"  [F_sin_posweight_s1] ep 8 | loss 0.5073 | AUC holdout 0.6933 | 218s\n"}
+,{"stream_name":"stdout","time":5499.933516673,"data":"  [F_sin_posweight_s1] ep 9 | loss 0.4819 | AUC holdout 0.6806 | 242s\n"}
+,{"stream_name":"stdout","time":5524.800009892,"data":"  [F_sin_posweight_s1] ep 10 | loss 0.4713 | AUC holdout 0.7059 | 267s\n"}
+,{"stream_name":"stdout","time":5549.567159894,"data":"  [F_sin_posweight_s1] ep 11 | loss 0.4565 | AUC holdout 0.6927 | 292s\n"}
+,{"stream_name":"stdout","time":5574.289331229,"data":"  [F_sin_posweight_s1] ep 12 | loss 0.4482 | AUC holdout 0.7033 | 317s\n"}
+,{"stream_name":"stdout","time":5599.045382813,"data":"  [F_sin_posweight_s1] ep 13 | loss 0.4373 | AUC holdout 0.7066 | 341s\n"}
+,{"stream_name":"stdout","time":5623.56643742,"data":"  [F_sin_posweight_s1] ep 14 | loss 0.4386 | AUC holdout 0.7042 | 366s\n"}
+,{"stream_name":"stdout","time":5627.537323439,"data":"=== F_sin_posweight_s2 {'pos_weight': False}\n"}
+,{"stream_name":"stdout","time":5651.835014028,"data":"  [F_sin_posweight_s2] ep 0 | loss 0.6574 | AUC holdout 0.6115 | 24s\n"}
+,{"stream_name":"stdout","time":5676.05608612,"data":"  [F_sin_posweight_s2] ep 1 | loss 0.6271 | AUC holdout 0.6443 | 48s\n"}
+,{"stream_name":"stdout","time":5700.083917735,"data":"  [F_sin_posweight_s2] ep 2 | loss 0.6081 | AUC holdout 0.6243 | 73s\n"}
+,{"stream_name":"stdout","time":5724.216917521,"data":"  [F_sin_posweight_s2] ep 3 | loss 0.5943 | AUC holdout 0.6577 | 97s\n"}
+,{"stream_name":"stdout","time":5748.363433915,"data":"  [F_sin_posweight_s2] ep 4 | loss 0.5866 | AUC holdout 0.6769 | 121s\n"}
+,{"stream_name":"stdout","time":5772.497116958,"data":"  [F_sin_posweight_s2] ep 5 | loss 0.5616 | AUC holdout 0.6371 | 145s\n"}
+,{"stream_name":"stdout","time":5796.505384769,"data":"  [F_sin_posweight_s2] ep 6 | loss 0.5509 | AUC holdout 0.6738 | 169s\n"}
+,{"stream_name":"stdout","time":5820.864638404,"data":"  [F_sin_posweight_s2] ep 7 | loss 0.5295 | AUC holdout 0.6908 | 193s\n"}
+,{"stream_name":"stdout","time":5844.944002889,"data":"  [F_sin_posweight_s2] ep 8 | loss 0.5150 | AUC holdout 0.6851 | 217s\n"}
+,{"stream_name":"stdout","time":5868.625281801,"data":"  [F_sin_posweight_s2] ep 9 | loss 0.4976 | AUC holdout 0.6754 | 241s\n"}
+,{"stream_name":"stdout","time":5892.562545795,"data":"  [F_sin_posweight_s2] ep 10 | loss 0.4824 | AUC holdout 0.6942 | 265s\n"}
+,{"stream_name":"stdout","time":5916.305004361,"data":"  [F_sin_posweight_s2] ep 11 | loss 0.4640 | AUC holdout 0.6800 | 289s\n"}
+,{"stream_name":"stdout","time":5939.77210109,"data":"  [F_sin_posweight_s2] ep 12 | loss 0.4543 | AUC holdout 0.6854 | 312s\n"}
+,{"stream_name":"stdout","time":5963.309980585,"data":"  [F_sin_posweight_s2] ep 13 | loss 0.4484 | AUC holdout 0.6842 | 336s\n"}
+,{"stream_name":"stdout","time":5986.954767403,"data":"  [F_sin_posweight_s2] ep 14 | loss 0.4465 | AUC holdout 0.6833 | 359s\n"}
+,{"stream_name":"stdout","time":5990.819546646,"data":"=== G_resnet50 {'backbone': 'resnet50', 'bs': 4}\n"}
+,{"stream_name":"stdout","time":5991.025236827,"data":"Downloading: \"https://download.pytorch.org/models/resnet50-11ad3fa6.pth\" to /root/.cache/torch/hub/checkpoints/resnet50-11ad3fa6.pth\n"}
+,{"stream_name":"stderr","time":5991.027317883,"data":"\r  0%|          | 0.00/97.8M [00:00\u003c?, ?B/s]\n"}
+,{"stream_name":"stderr","time":5991.127590807,"data":"\r  0%|          | 0.00/97.8M [00:00\u003c?, ?B/s]\r 12%|█▏        | 11.4M/97.8M [00:00\u003c00:00, 119MB/s]\n"}
+,{"stream_name":"stderr","time":5991.227588831,"data":"\r 12%|█▏        | 11.4M/97.8M [00:00\u003c00:00, 119MB/s]\r 36%|███▌      | 34.8M/97.8M [00:00\u003c00:00, 193MB/s]\n"}
+,{"stream_name":"stderr","time":5991.327674884,"data":"\r 36%|███▌      | 34.8M/97.8M [00:00\u003c00:00, 193MB/s]\r 60%|█████▉    | 58.5M/97.8M [00:00\u003c00:00, 218MB/s]\n"}
+,{"stream_name":"stderr","time":5991.428124242,"data":"\r 60%|█████▉    | 58.5M/97.8M [00:00\u003c00:00, 218MB/s]\r 84%|████████▍ | 82.2M/97.8M [00:00\u003c00:00, 230MB/s]\n"}
+,{"stream_name":"stderr","time":5991.489376871,"data":"\r 84%|████████▍ | 82.2M/97.8M [00:00\u003c00:00, 230MB/s]\r100%|██████████| 97.8M/97.8M [00:00\u003c00:00, 222MB/s]\n"}
+,{"stream_name":"stderr","time":5991.528721745,"data":"\r100%|██████████| 97.8M/97.8M [00:00\u003c00:00, 222MB/s]\n"}
+,{"stream_name":"stderr","time":5991.528761493,"data":"\n"}
+,{"stream_name":"stderr","time":5991.528767949,"data":"\n"}
+,{"stream_name":"stdout","time":6054.163577598,"data":"  [G_resnet50] ep 0 | loss 0.8368 | AUC holdout 0.5427 | 62s\n"}
+,{"stream_name":"stdout","time":6117.063641589,"data":"  [G_resnet50] ep 1 | loss 0.8172 | AUC holdout 0.5994 | 125s\n"}
+,{"stream_name":"stdout","time":6179.634125231,"data":"  [G_resnet50] ep 2 | loss 0.7925 | AUC holdout 0.6113 | 188s\n"}
+,{"stream_name":"stdout","time":6243.064844704,"data":"  [G_resnet50] ep 3 | loss 0.7768 | AUC holdout 0.6171 | 251s\n"}
+,{"stream_name":"stdout","time":6306.850946506,"data":"  [G_resnet50] ep 4 | loss 0.7717 | AUC holdout 0.6223 | 315s\n"}
+,{"stream_name":"stdout","time":6370.797197675,"data":"  [G_resnet50] ep 5 | loss 0.7483 | AUC holdout 0.6462 | 379s\n"}
+,{"stream_name":"stdout","time":6433.01712293,"data":"  [G_resnet50] ep 6 | loss 0.7283 | AUC holdout 0.6634 | 441s\n"}
+,{"stream_name":"stdout","time":6495.052605074,"data":"  [G_resnet50] ep 7 | loss 0.6988 | AUC holdout 0.6819 | 503s\n"}
+,{"stream_name":"stdout","time":6557.092121897,"data":"  [G_resnet50] ep 8 | loss 0.6906 | AUC holdout 0.6868 | 565s\n"}
+,{"stream_name":"stdout","time":6619.03569042,"data":"  [G_resnet50] ep 9 | loss 0.6653 | AUC holdout 0.7017 | 627s\n"}
+,{"stream_name":"stdout","time":6680.739371677,"data":"  [G_resnet50] ep 10 | loss 0.6377 | AUC holdout 0.7078 | 689s\n"}
+,{"stream_name":"stdout","time":6742.595653586,"data":"  [G_resnet50] ep 11 | loss 0.6171 | AUC holdout 0.7055 | 751s\n"}
+,{"stream_name":"stdout","time":6803.996348349,"data":"  [G_resnet50] ep 12 | loss 0.5971 | AUC holdout 0.7039 | 812s\n"}
+,{"stream_name":"stdout","time":6865.685417935,"data":"  [G_resnet50] ep 13 | loss 0.5794 | AUC holdout 0.7030 | 874s\n"}
+,{"stream_name":"stdout","time":6929.647819717,"data":"  [G_resnet50] ep 14 | loss 0.5859 | AUC holdout 0.7049 | 938s\n"}
+,{"stream_name":"stdout","time":6937.777157274,"data":"=== G_resnet50_s1 {'backbone': 'resnet50', 'bs': 4}\n"}
+,{"stream_name":"stdout","time":7000.000133281,"data":"  [G_resnet50_s1] ep 0 | loss 0.8362 | AUC holdout 0.5710 | 62s\n"}
+,{"stream_name":"stdout","time":7061.652334116,"data":"  [G_resnet50_s1] ep 1 | loss 0.8220 | AUC holdout 0.5889 | 124s\n"}
+,{"stream_name":"stdout","time":7123.166422931,"data":"  [G_resnet50_s1] ep 2 | loss 0.7952 | AUC holdout 0.6221 | 185s\n"}
+,{"stream_name":"stdout","time":7184.80733832,"data":"  [G_resnet50_s1] ep 3 | loss 0.7760 | AUC holdout 0.5988 | 247s\n"}
+,{"stream_name":"stdout","time":7246.931975786,"data":"  [G_resnet50_s1] ep 4 | loss 0.7579 | AUC holdout 0.6293 | 309s\n"}
+,{"stream_name":"stdout","time":7313.060027282,"data":"  [G_resnet50_s1] ep 5 | loss 0.7595 | AUC holdout 0.6534 | 375s\n"}
+,{"stream_name":"stdout","time":7378.478902939,"data":"  [G_resnet50_s1] ep 6 | loss 0.7280 | AUC holdout 0.6677 | 440s\n"}
+,{"stream_name":"stdout","time":7444.399739579,"data":"  [G_resnet50_s1] ep 7 | loss 0.7002 | AUC holdout 0.6677 | 506s\n"}
+,{"stream_name":"stdout","time":7511.062077722,"data":"  [G_resnet50_s1] ep 8 | loss 0.6844 | AUC holdout 0.6960 | 573s\n"}
+,{"stream_name":"stdout","time":7576.50451437,"data":"  [G_resnet50_s1] ep 9 | loss 0.6585 | AUC holdout 0.6992 | 638s\n"}
+,{"stream_name":"stdout","time":7641.17772824,"data":"  [G_resnet50_s1] ep 10 | loss 0.6287 | AUC holdout 0.6903 | 703s\n"}
+,{"stream_name":"stdout","time":7704.575671779,"data":"  [G_resnet50_s1] ep 11 | loss 0.6031 | AUC holdout 0.7018 | 766s\n"}
+,{"stream_name":"stdout","time":7770.412905613,"data":"  [G_resnet50_s1] ep 12 | loss 0.5887 | AUC holdout 0.7127 | 832s\n"}
+,{"stream_name":"stdout","time":7834.748827128,"data":"  [G_resnet50_s1] ep 13 | loss 0.5734 | AUC holdout 0.7170 | 897s\n"}
+,{"stream_name":"stdout","time":7898.490083891,"data":"  [G_resnet50_s1] ep 14 | loss 0.5623 | AUC holdout 0.7177 | 960s\n"}
+,{"stream_name":"stdout","time":7906.826504316,"data":"=== G_resnet50_s2 {'backbone': 'resnet50', 'bs': 4}\n"}
+,{"stream_name":"stdout","time":7970.529685811,"data":"  [G_resnet50_s2] ep 0 | loss 0.8394 | AUC holdout 0.5685 | 63s\n"}
+,{"stream_name":"stdout","time":8033.271094649,"data":"  [G_resnet50_s2] ep 1 | loss 0.8230 | AUC holdout 0.5695 | 126s\n"}
+,{"stream_name":"stdout","time":8096.426638741,"data":"  [G_resnet50_s2] ep 2 | loss 0.7894 | AUC holdout 0.6042 | 189s\n"}
+,{"stream_name":"stdout","time":8158.845420515,"data":"  [G_resnet50_s2] ep 3 | loss 0.7788 | AUC holdout 0.6041 | 252s\n"}
+,{"stream_name":"stdout","time":8221.952921149,"data":"  [G_resnet50_s2] ep 4 | loss 0.7592 | AUC holdout 0.6596 | 315s\n"}
+,{"stream_name":"stdout","time":8285.86358777,"data":"  [G_resnet50_s2] ep 5 | loss 0.7562 | AUC holdout 0.6486 | 379s\n"}
+,{"stream_name":"stdout","time":8348.882275308,"data":"  [G_resnet50_s2] ep 6 | loss 0.7214 | AUC holdout 0.7200 | 442s\n"}
+,{"stream_name":"stdout","time":8411.662434276,"data":"  [G_resnet50_s2] ep 7 | loss 0.6903 | AUC holdout 0.7231 | 505s\n"}
+,{"stream_name":"stdout","time":8477.149403128,"data":"  [G_resnet50_s2] ep 8 | loss 0.6729 | AUC holdout 0.7265 | 570s\n"}
+,{"stream_name":"stdout","time":8541.187553181,"data":"  [G_resnet50_s2] ep 9 | loss 0.6336 | AUC holdout 0.7250 | 634s\n"}
+,{"stream_name":"stdout","time":8605.840252042,"data":"  [G_resnet50_s2] ep 10 | loss 0.6057 | AUC holdout 0.7419 | 699s\n"}
+,{"stream_name":"stdout","time":8668.891070808,"data":"  [G_resnet50_s2] ep 11 | loss 0.5801 | AUC holdout 0.7434 | 762s\n"}
+,{"stream_name":"stdout","time":8732.905190992,"data":"  [G_resnet50_s2] ep 12 | loss 0.5628 | AUC holdout 0.7471 | 826s\n"}
+,{"stream_name":"stdout","time":8797.171500224,"data":"  [G_resnet50_s2] ep 13 | loss 0.5499 | AUC holdout 0.7488 | 890s\n"}
+,{"stream_name":"stdout","time":8860.741889484,"data":"  [G_resnet50_s2] ep 14 | loss 0.5415 | AUC holdout 0.7490 | 953s\n"}
+,{"stream_name":"stdout","time":9169.595095272,"data":"                 AUC_gold            IC95  delta_vs_ref        IC95_delta  AUC_holdout  mejor_epoca  minutos\n"}
+,{"stream_name":"stdout","time":9169.595138128,"data":"experimento                                                                                                 \n"}
+,{"stream_name":"stdout","time":9169.59514788,"data":"A_scratch           0.589  [0.525, 0.647]        -0.140  [-0.198, -0.078]        0.624            4    6.016\n"}
+,{"stream_name":"stdout","time":9169.595152138,"data":"B_resnet18          0.729  [0.673, 0.782]         0.000        [nan, nan]        0.708           10    5.881\n"}
+,{"stream_name":"stdout","time":9169.595155293,"data":"C_focal             0.740  [0.686, 0.789]         0.011   [-0.017, 0.040]        0.693            7    5.846\n"}
+,{"stream_name":"stdout","time":9169.595158873,"data":"D_confident         0.707  [0.648, 0.761]        -0.022   [-0.064, 0.020]        0.643           13    6.115\n"}
+,{"stream_name":"stdout","time":9169.595179804,"data":"E_sagittal          0.734  [0.681, 0.784]         0.005   [-0.046, 0.052]        0.709           14    2.044\n"}
+,{"stream_name":"stdout","time":9169.595184907,"data":"F_sin_posweight     0.737  [0.684, 0.787]         0.008   [-0.023, 0.040]        0.677           13    5.819\n"}
+,{"stream_name":"stdout","time":9169.595189452,"data":"G_resnet50          0.741  [0.690, 0.793]         0.012   [-0.021, 0.048]        0.708           10   15.633\n"}
+,{"stream_name":"stdout","time":9169.595194532,"data":"\n"}
+,{"stream_name":"stdout","time":9169.595199025,"data":"AUC por hallazgo (gold):\n"}
+,{"stream_name":"stdout","time":9169.595203447,"data":" hallazgo           ACL    MCL  Medial Meniscus  Lateral Meniscus  Medial OA  Lateral OA  PF OA  Effusion  Synovitis  Baker's  Contusion  Fracture\n"}
+,{"stream_name":"stdout","time":9169.595208605,"data":"A_scratch        0.474  0.535            0.569             0.629      0.571       0.687  0.579     0.758      0.579    0.663      0.502     0.519\n"}
+,{"stream_name":"stdout","time":9169.595212975,"data":"B_resnet18       0.775  0.683            0.662             0.827      0.836       0.733  0.592     0.793      0.479    0.864      0.745     0.760\n"}
+,{"stream_name":"stdout","time":9169.595217278,"data":"C_focal          0.761  0.617            0.594             0.837      0.874       0.795  0.685     0.865      0.572    0.734      0.835     0.707\n"}
+,{"stream_name":"stdout","time":9169.595221916,"data":"D_confident      0.775  0.524            0.721             0.709      0.843       0.650  0.717     0.814      0.732    0.683      0.707     0.606\n"}
+,{"stream_name":"stdout","time":9169.595229953,"data":"E_sagittal       0.847  0.608            0.696             0.764      0.811       0.654  0.568     0.825      0.633    0.804      0.837     0.761\n"}
+,{"stream_name":"stdout","time":9169.595232915,"data":"F_sin_posweight  0.809  0.587            0.754             0.832      0.850       0.718  0.651     0.799      0.600    0.841      0.735     0.665\n"}
+,{"stream_name":"stdout","time":9169.595237055,"data":"G_resnet50       0.795  0.596            0.588             0.788      0.885       0.708  0.713     0.790      0.587    0.792      0.852     0.793\n"}
+,{"stream_name":"stdout","time":9169.595240116,"data":"\n"}
+,{"stream_name":"stdout","time":9169.595244715,"data":"mejor modelo por holdout: E_sagittal\n"}
+,{"stream_name":"stdout","time":9169.595247575,"data":"                   prevalencia_gold    AUC  umbral  precision  recall     F1\n"}
+,{"stream_name":"stdout","time":9169.595250581,"data":"hallazgo                                                                   \n"}
+,{"stream_name":"stdout","time":9169.595274043,"data":"ACL                          0.414  0.847   0.638      0.750   0.750  0.750\n"}
+,{"stream_name":"stdout","time":9169.595279891,"data":"MCL                          0.155  0.608   0.535      0.167   0.444  0.242\n"}
+,{"stream_name":"stdout","time":9169.595284083,"data":"Medial Meniscus              0.448  0.696   0.204      0.491   1.000  0.658\n"}
+,{"stream_name":"stdout","time":9169.595287816,"data":"Lateral Meniscus             0.397  0.764   0.082      0.543   0.826  0.655\n"}
+,{"stream_name":"stdout","time":9169.595291676,"data":"Medial OA                    0.259  0.811   0.263      0.361   0.867  0.510\n"}
+,{"stream_name":"stdout","time":9169.595295073,"data":"Lateral OA                   0.190  0.654   0.106      0.211   0.727  0.327\n"}
+,{"stream_name":"stdout","time":9169.595298393,"data":"PF OA                        0.362  0.568   0.198      0.358   0.905  0.514\n"}
+,{"stream_name":"stdout","time":9169.595301637,"data":"Effusion                     0.603  0.825   0.426      0.660   0.943  0.776\n"}
+,{"stream_name":"stdout","time":9169.59530488,"data":"Synovitis                    0.466  0.633   0.609      0.667   0.222  0.333\n"}
+,{"stream_name":"stdout","time":9169.595308292,"data":"Baker's                      0.207  0.804   0.267      0.300   1.000  0.462\n"}
+,{"stream_name":"stdout","time":9169.59531155,"data":"Contusion                    0.328  0.837   0.777      0.600   0.789  0.682\n"}
+,{"stream_name":"stdout","time":9169.595314846,"data":"Fracture                     0.310  0.761   0.838      0.545   0.333  0.414\n"}
+,{"stream_name":"stdout","time":9170.178704814,"data":"\n"}
+,{"stream_name":"stdout","time":9170.178743449,"data":"AUC macro gold en 3 semillas:\n"}
+,{"stream_name":"stdout","time":9170.178749666,"data":"                  macro                      delta_vs_ref                     \n"}
+,{"stream_name":"stdout","time":9170.178754343,"data":"                  mean    std    min    max         mean    std    min    max\n"}
+,{"stream_name":"stdout","time":9170.178758169,"data":"experimento                                                                  \n"}
+,{"stream_name":"stdout","time":9170.178762415,"data":"A_scratch        0.595  0.006  0.589  0.599       -0.137  0.010 -0.145 -0.126\n"}
+,{"stream_name":"stdout","time":9170.178766813,"data":"B_resnet18       0.732  0.010  0.724  0.744        0.000  0.000  0.000  0.000\n"}
+,{"stream_name":"stdout","time":9170.178770513,"data":"C_focal          0.742  0.007  0.737  0.750        0.010  0.003  0.006  0.012\n"}
+,{"stream_name":"stdout","time":9170.17877415,"data":"D_confident      0.699  0.008  0.691  0.707       -0.033  0.017 -0.052 -0.022\n"}
+,{"stream_name":"stdout","time":9170.178778259,"data":"E_sagittal       0.737  0.002  0.734  0.738        0.004  0.010 -0.006  0.014\n"}
+,{"stream_name":"stdout","time":9170.178782422,"data":"F_sin_posweight  0.735  0.009  0.725  0.742        0.002  0.019 -0.019  0.018\n"}
+,{"stream_name":"stdout","time":9170.178786095,"data":"G_resnet50       0.736  0.004  0.732  0.741        0.003  0.011 -0.010  0.012\n"}
+,{"stream_name":"stdout","time":9170.178789815,"data":"\n"}
+,{"stream_name":"stdout","time":9170.178793148,"data":"hallazgos raros (AUC gold):\n"}
+,{"stream_name":"stdout","time":9170.178796678,"data":"                  Fracture  Contusion    MCL  Lateral Meniscus\n"}
+,{"stream_name":"stdout","time":9170.178800228,"data":"B_resnet18          0.760      0.745  0.683             0.827\n"}
+,{"stream_name":"stdout","time":9170.178803766,"data":"C_focal             0.707      0.835  0.617             0.837\n"}
+,{"stream_name":"stdout","time":9170.178807218,"data":"F_sin_posweight     0.665      0.735  0.587             0.832\n"}
+,{"stream_name":"stderr","time":9179.977493837,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":9179.977528029,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":9180.142048516,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":9180.142081674,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":9180.997209889,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":9181.174186232,"data":"[NbConvertApp] Writing 1384672 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":9183.678163379,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":9184.526581485,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":9184.526621071,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":9184.527039775,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":9184.527643118,"data":"[NbConvertApp] Writing 652216 bytes to __results__.html\n"}
+]

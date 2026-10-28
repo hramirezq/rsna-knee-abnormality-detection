@@ -29,7 +29,7 @@ Los datos de la competencia **no están en este repositorio**, por su tamaño y 
 .
 ├── rsna_knee_kaggle.ipynb   # todo el pipeline en un solo notebook (5 modos, ver "Ejecución")
 ├── requirements.txt         # versiones probadas (Python 3.13)
-├── output-train/            # resultados de la corrida real en Kaggle (GPU T4, 600 estudios)
+├── output-data/             # corrida 1 en Kaggle (GPU T4, 600 estudios, semilla 42)
 │   ├── resumen_experimentos.csv    # AUC macro por experimento, con IC 95 %
 │   ├── auc_por_hallazgo.csv        # AUC de cada hallazgo, por experimento
 │   ├── metricas_por_hallazgo.csv   # umbral, precisión, recall y F1, por experimento y hallazgo
@@ -39,6 +39,11 @@ Los datos de la competencia **no están en este repositorio**, por su tamaño y 
 │   ├── experimentos.png            # comparación gráfica de los experimentos
 │   ├── gradcam.png                 # mapas Grad-CAM de 4 hallazgos
 │   └── knee-train.log              # log completo de la corrida en Kaggle
+├── output-data-v2/          # corrida 2: los 7 experimentos con las semillas 42, 1 y 2
+│   ├── semillas.csv                # AUC macro y por hallazgo, por experimento y semilla
+│   ├── resumen_experimentos.csv    # igual al de la corrida 1 salvo los minutos (la semilla 42 se reproduce exacta)
+│   ├── knee-train-v2.ipynb         # notebook ejecutado en Kaggle
+│   └── knee-train-v2.log           # log completo de la corrida 2
 ├── informe/                 # secciones del informe técnico en LaTeX
 │   ├── evolucion_extractor.tex     # cómo se construyó e iteró el extractor de etiquetas
 │   ├── experimentos.tex            # diseño de experimentos y resultados
@@ -47,8 +52,9 @@ Los datos de la competencia **no están en este repositorio**, por su tamaño y 
 └── work/                    # (ignorado por git) datos sintéticos y salidas de la corrida local
 ```
 
-Algunos archivos se generan pero no se versionan (ver `.gitignore`): los checkpoints `output-train/*.pt`
-(≈410 MB), `output-train/weak_labels.csv`, los *wheels* de `pylibjpeg` y toda la carpeta `work/`.
+Algunos archivos se generan pero no se versionan (ver `.gitignore`): los checkpoints `output-data*/*.pt`
+(≈840 MB entre las dos corridas), `output-data*/weak_labels.csv`, los *wheels* de `pylibjpeg` y toda la carpeta `work/`.
+Los demás CSV y PNG de la corrida 2 son copias exactas de los de `output-data/`, porque la semilla 42 es determinista.
 
 ## Ejecución
 
@@ -79,7 +85,7 @@ notebook es el *Input* del siguiente:
 |---|---|---|---|---|
 | `knee-preprocess` | `preprocess` | CPU, Internet ON | competencia | caché `train_vols.npy` (≈10.6 GB), `train_masks.npy`, `train_ids.npy` |
 | `knee-labels` (opcional) | `labels` | CPU | competencia | calidad del extractor; sirve para iterar el léxico |
-| `knee-train` | `train` | GPU T4, Internet ON | competencia + `knee-preprocess` | todo lo de `output-train/` + checkpoints |
+| `knee-train` | `train` | GPU T4, Internet ON | competencia + `knee-preprocess` | todo lo de `output-data/` + `semillas.csv` + checkpoints |
 | `knee-submit` (opcional) | `infer` | GPU, Internet OFF | competencia + `knee-train` | `submission.csv` |
 
 Pasos en Kaggle:
@@ -147,7 +153,7 @@ Todos cambian **un solo factor** respecto de la referencia `B_resnet18`:
 
 ## Cómo leer los resultados
 
-Todos los archivos están en `output-train/`. Para correr el notebook de nuevo en local, los mismos archivos aparecen en `work/`.
+Los archivos de la corrida 1 están en `output-data/`; la corrida 2 agrega `output-data-v2/semillas.csv`. Para correr el notebook de nuevo en local, los mismos archivos aparecen en `work/`.
 
 **`resumen_experimentos.csv`:** la tabla principal. Columnas:
 - `AUC_gold`: AUC macro sobre los 58 gold (la métrica de la competencia). 0.5 equivale a azar y 1.0 es perfecto.
@@ -169,7 +175,23 @@ Resultados de la corrida incluida:
 | `G_resnet50` | 0.741 | [0.690, 0.793] | +0.012 (no concluyente) |
 
 Lo único que la evidencia sostiene con claridad es que el preentrenamiento en ImageNet aporta mucho: `A` contra `B`.
-Las demás variantes quedan dentro del ruido estadístico.
+Las demás variantes quedan dentro del ruido estadístico (pero ver `semillas.csv`: `C` y `D` mantienen el signo en las tres semillas).
+
+**`semillas.csv`** (corrida 2): una fila por experimento y semilla, con el AUC macro, los 12 AUC por hallazgo y `delta_vs_ref`
+(diferencia contra `B_resnet18` entrenado con la misma semilla). Mide cuánto cambia el resultado solo por el azar del entrenamiento:
+
+| Experimento | AUC macro (media ± DE) | Δ vs B por semilla (42 / 1 / 2) | Lectura |
+|---|---|---|---|
+| `A_scratch` | 0.595 ± 0.006 | −0.140 / −0.145 / −0.126 | peor en las tres |
+| `B_resnet18` | 0.732 ± 0.010 | — | — |
+| `C_focal` | 0.742 ± 0.007 | +0.011 / +0.006 / +0.012 | mejor en las tres, pero poco |
+| `D_confident` | 0.699 ± 0.008 | −0.022 / −0.052 / −0.025 | peor en las tres |
+| `E_sagittal` | 0.737 ± 0.002 | +0.005 / −0.006 / +0.014 | cambia de signo: ruido |
+| `F_sin_posweight` | 0.735 ± 0.009 | +0.008 / −0.019 / +0.018 | cambia de signo: ruido |
+| `G_resnet50` | 0.736 ± 0.004 | +0.012 / −0.010 / +0.008 | cambia de signo: ruido |
+
+La desviación entre semillas (≤ 0.010) es mucho menor que el ancho del IC bootstrap (≈ ±0.05): la incertidumbre principal
+viene de tener 58 gold. Por hallazgo la variación es mayor (hasta 0.08), así que las comparaciones por hallazgo de una sola semilla son frágiles.
 
 **`auc_por_hallazgo.csv`:** una fila por experimento y una columna por hallazgo. Muestra qué hallazgos aprende bien el modelo y cuáles no.
 

@@ -1,6 +1,7 @@
 % Sección del informe: experimentos (entregables 2, 3, 4, 5 y 6).
 % Uso en el main.tex de NeurIPS:  \input{experimentos}   (requiere \usepackage{booktabs} y \usepackage{graphicx})
-% Fuente de los números: output-train/ (versión de knee-train del 27 oct 2026, GPU T4, 15 épocas, 49 min en total).
+% Fuente de los números: output-data/ (corrida 1 de knee-train, 27 oct 2026, GPU T4, 15 épocas, 49 min en total)
+% y output-data-v2/semillas.csv (corrida 2: semillas 42, 1 y 2; la semilla 42 reproduce la corrida 1 byte a byte).
 
 \section{Experimentos}
 \label{sec:experimentos}
@@ -17,6 +18,30 @@ La optimización usa AdamW (tasa $10^{-4}$ en el \emph{backbone} y $10^{-3}$ en 
 Se entrena 15 épocas con lotes de 8 (4 para ResNet-50) y se conserva la época con mejor AUC macro en el holdout.
 Los 7 experimentos tardaron 49 min en una GPU T4.
 Los intervalos de confianza (IC 95\%) se obtienen con 1000 remuestreos \emph{bootstrap} de los 58 estudios gold; para las diferencias se usa un bootstrap pareado contra la referencia \texttt{B\_resnet18}.
+
+\paragraph{Corridas realizadas.}
+Se hicieron dos corridas completas con la misma configuración (Tabla~\ref{tab:corridas}).
+La primera entrenó cada experimento una vez, con la semilla 42.
+En ella, las diferencias de C, E, F y G frente a B eran de $\pm0.01$ y todos sus intervalos cruzaban el cero, de modo que no se podía saber si el orden entre esas variantes reflejaba un efecto o solo el azar del entrenamiento.
+Por eso la segunda corrida repitió los 7 experimentos con las semillas 42, 1 y 2.
+La semilla cambia solo el entrenamiento (inicialización de la cabeza, ventanas muestreadas, aumentos y orden de los lotes); el subconjunto, el holdout y los gold son los mismos.
+Con la semilla 42, la segunda corrida reproduce la primera byte a byte (mismos pesos, métricas y figuras).
+Por eso las tablas y figuras de esta sección corresponden a la semilla 42, y las otras dos semillas se usan en la Tabla~\ref{tab:semillas}.
+
+\begin{table}[t]
+  \caption{Corridas completas en Kaggle (GPU T4). La duración es la de toda la corrida.}
+  \label{tab:corridas}
+  \centering
+  \small
+  \begin{tabular}{@{}clccp{0.42\linewidth}@{}}
+    \toprule
+    Corrida & Semillas & Entrenamientos & Duración & Motivo \\
+    \midrule
+    1 & 42       &  7 &  49 min & Comparar los 7 experimentos. \\
+    2 & 42, 1, 2 & 21 & 153 min & Medir cuánto cambia el AUC solo por el azar del entrenamiento y comprobar si el orden de la corrida 1 se mantiene. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \begin{table}[t]
   \caption{Resultados en los 58 estudios gold. $\Delta$: diferencia de AUC macro contra la referencia B, con IC 95\% pareado.
@@ -59,12 +84,52 @@ Los modelos preentrenados mejoran hasta las épocas 7--10 y luego se estabilizan
 \paragraph{Ablaciones (entregable 4).}
 Ninguna de las cinco variaciones sobre B produce una diferencia significativa: todos los intervalos de $\Delta$ incluyen el cero.
 Con 58 estudios gold, diferencias de AUC menores a $\sim0.04$ no se pueden distinguir del azar, así que las conclusiones siguientes son tendencias.
+Entre paréntesis se indica la media de las tres semillas de la segunda corrida (Tabla~\ref{tab:semillas}).
 \begin{itemize}
-  \item \textbf{Pérdida} (C, focal~\cite{lin2017focal}, $\gamma=2$): $+0.011$. Es el mejor modelo en derrame ($0.865$) y contusión ($0.835$).
-  \item \textbf{Manejo de etiquetas ruidosas} (D): descartar el silencio y las dudas (peso $0$) en lugar de ponderarlos ($0.3$ y $0.5$) baja el AUC macro ($-0.022$), pero cambia mucho según el hallazgo. En sinovitis, D llega a $0.732$ frente a $0.479$ de B. El extractor menciona la sinovitis en solo el $36\%$ de los reportes y el experto la marca en el $47\%$ de los gold, de modo que tratar el silencio como negativo le enseña a B que la sinovitis casi nunca está presente. El mismo efecto, menor, aparece en artrosis patelofemoral ($0.717$ frente a $0.592$) y menisco medial ($0.721$ frente a $0.662$). En cambio, D empeora en MCL, quiste de Baker y fractura, donde descartar el silencio deja muy pocos ejemplos.
-  \item \textbf{Plano} (E, solo sagital): rinde igual que los tres planos ($+0.005$) en el $37\%$ del tiempo. El resultado es coherente con la práctica clínica: el ligamento cruzado anterior se evalúa en el plano sagital y E es el mejor modelo en ACL ($0.847$), mientras que pierde en artrosis patelofemoral ($0.568$) y lateral ($0.654$), que se ven mejor en los planos axial y coronal.
-  \item \textbf{Profundidad del backbone} (G, ResNet-50): $+0.012$ a 2.6 veces el costo. Es el mejor AUC macro ($0.741$), pero la mejora no es significativa.
+  \item \textbf{Pérdida} (C, focal~\cite{lin2017focal}, $\gamma=2$): $+0.011$ ($+0.010$, positiva en las tres semillas). Es el mejor modelo en derrame ($0.865$; $0.822$) y contusión ($0.835$; $0.814$).
+  \item \textbf{Manejo de etiquetas ruidosas} (D): descartar el silencio y las dudas (peso $0$) en lugar de ponderarlos ($0.3$ y $0.5$) baja el AUC macro ($-0.022$; $-0.033$, negativa en las tres semillas), pero cambia mucho según el hallazgo. En sinovitis, D llega a $0.732$ frente a $0.479$ de B ($0.683$ frente a $0.570$). El extractor menciona la sinovitis en solo el $36\%$ de los reportes y el experto la marca en el $47\%$ de los gold, de modo que tratar el silencio como negativo le enseña a B que la sinovitis casi nunca está presente. El mismo efecto aparece en menisco medial ($0.721$ frente a $0.662$; $0.746$ frente a $0.655$), donde D supera a B en las tres semillas. En artrosis patelofemoral, en cambio, la ventaja de la semilla 42 ($0.717$ frente a $0.592$) desaparece con la media ($0.657$ frente a $0.662$). D empeora en MCL, quiste de Baker y fractura, donde descartar el silencio deja muy pocos ejemplos.
+  \item \textbf{Plano} (E, solo sagital): rinde igual que los tres planos ($+0.005$; $+0.004$) en el $37\%$ del tiempo. El resultado es coherente con la práctica clínica: el ligamento cruzado anterior se evalúa en el plano sagital y E es el mejor modelo en ACL ($0.847$; $0.839$), mientras que pierde en artrosis patelofemoral ($0.568$; $0.614$) y lateral ($0.654$; $0.696$), que se ven mejor en los planos axial y coronal.
+  \item \textbf{Profundidad del backbone} (G, ResNet-50): $+0.012$ a 2.6 veces el costo. Con la semilla 42 es el mejor AUC macro ($0.741$), pero con tres semillas su media ($0.736$) queda por debajo de la de C y su $\Delta$ cambia de signo.
 \end{itemize}
+
+\begin{table}[t]
+  \caption{AUC macro en los gold con tres semillas (segunda corrida). DE: desviación estándar entre semillas.
+    $\Delta$: diferencia contra B entrenado con la misma semilla.}
+  \label{tab:semillas}
+  \centering
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}lccccccccc@{}}
+    \toprule
+    & \multicolumn{3}{c}{AUC por semilla} & & & \multicolumn{3}{c}{$\Delta$ vs B por semilla} & \\
+    \cmidrule(lr){2-4} \cmidrule(lr){7-9}
+    & 42 & 1 & 2 & Media & DE & 42 & 1 & 2 & $\Delta$ medio \\
+    \midrule
+    A & .589 & .599 & .598 & .595 & .006 & $-.140$ & $-.145$ & $-.126$ & $-.137$ \\
+    B & .729 & .744 & .724 & .732 & .010 & ---     & ---     & ---     & ---     \\
+    C & .740 & .750 & .737 & .742 & .007 & $+.011$ & $+.006$ & $+.012$ & $+.010$ \\
+    D & .707 & .691 & .699 & .699 & .008 & $-.022$ & $-.052$ & $-.025$ & $-.033$ \\
+    E & .734 & .738 & .738 & .737 & .002 & $+.005$ & $-.006$ & $+.014$ & $+.004$ \\
+    F & .737 & .725 & .742 & .735 & .009 & $+.008$ & $-.019$ & $+.018$ & $+.002$ \\
+    G & .741 & .734 & .732 & .736 & .004 & $+.012$ & $-.010$ & $+.008$ & $+.003$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Variabilidad entre semillas (segunda corrida).}
+La Tabla~\ref{tab:semillas} responde si el orden de la primera corrida era real o producto del azar del entrenamiento.
+La desviación estándar del AUC macro entre semillas va de $0.002$ a $0.010$, al menos cinco veces menor que la mitad del ancho de los IC bootstrap ($\approx0.05$).
+Es decir, la mayor parte de la incertidumbre viene de evaluar con 58 estudios, no del entrenamiento.
+Las tres semillas se evalúan sobre los mismos gold, así que repetir el entrenamiento no reduce esa incertidumbre y los IC de la Tabla~\ref{tab:experimentos} siguen vigentes.
+Con esa salvedad, la repetición separa dos grupos:
+\begin{itemize}
+  \item \textbf{Efectos estables.} A queda por debajo de B en las tres semillas ($-0.126$ a $-0.145$), lo que confirma la ventaja del preentrenamiento. C supera a B en las tres ($+0.006$ a $+0.012$) y es el mejor modelo en promedio ($0.742$). D queda por debajo en las tres ($-0.022$ a $-0.052$): en la primera corrida su pérdida era no concluyente, y ahora se ve que no depende de la semilla. En C y D el efecto es consistente pero pequeño frente a los IC, así que sigue sin ser significativo.
+  \item \textbf{Ruido.} En E, F y G el signo de $\Delta$ cambia entre semillas. No hay evidencia de que solo sagital, quitar \texttt{pos\_weight} o ResNet-50 cambien el AUC macro. En particular, G dejó de ser el mejor modelo.
+\end{itemize}
+Por hallazgo, la variación es mucho mayor que en el macro.
+En B, la desviación estándar entre semillas llega a $0.079$ en sinovitis, $0.061$ en artrosis patelofemoral y $0.054$ en MCL.
+Por ejemplo, la ventaja de D en sinovitis es de $+0.253$ con la semilla 42, pero de $-0.010$ con la semilla 2.
+Las comparaciones por hallazgo hechas con una sola semilla son, por tanto, frágiles.
 
 \begin{table}[t]
   \caption{AUC por hallazgo en los gold. Última columna: el extractor de texto (v4, Sección~\ref{sec:extractor}), que generó las etiquetas de entrenamiento.
@@ -100,8 +165,10 @@ La Tabla~\ref{tab:auc-hallazgo} compara cada modelo con el extractor de texto qu
 En promedio, el mejor modelo de imagen ($0.741$) queda cerca de su ``maestro'' ($0.753$).
 En varios hallazgos lo supera: derrame ($0.865$ en C frente a $0.666$), artrosis medial ($0.885$ en G frente a $0.760$), contusión ($0.852$ en G frente a $0.760$) y menisco lateral ($0.837$ en C frente a $0.806$).
 Un modelo entrenado con etiquetas ruidosas puede superar a la fuente de esas etiquetas cuando el ruido no es sistemático, porque la red promedia los errores individuales~\cite{ratner2017snorkel}.
+Las cuatro ventajas se mantienen con la media de las tres semillas ($0.822$, $0.881$, $0.808$ y $0.839$).
 Para ACL, MCL y sinovitis ocurre lo contrario: el reporte describe el hallazgo de forma más directa de lo que la imagen permite aprender con 540 estudios.
-El AUC por hallazgo se apoya en 9 a 35 positivos, por lo que sus intervalos son amplios (no mostrados).
+El AUC por hallazgo se apoya en 9 a 35 positivos, por lo que sus intervalos son amplios (no mostrados), y además varía entre semillas con una desviación estándar de hasta $0.08$.
+Diferencias de pocas centésimas entre modelos en un mismo hallazgo no son fiables.
 
 \paragraph{Umbral y métricas de decisión.}
 El modelo final se elige sin mirar los gold: es el de mejor AUC en el holdout, \texttt{E\_sagittal} ($0.7087$, empatado en la práctica con B y G).
@@ -166,10 +233,29 @@ Un umbral elegido con la prevalencia débil no se traslada bien a los gold: en s
 \paragraph{Desbalance de clases (entregable 6).}
 En las etiquetas débiles de entrenamiento, la prevalencia va del $13\%$ (fractura) al $61\%$ (derrame) (Tabla~\ref{tab:prevalencia}).
 Como mitigación principal, la BCE usa \texttt{pos\_weight} $=(1-p)/p$ por hallazgo, acotado a $[1, 10]$; como alternativa se evaluó la pérdida focal.
-Quitar \texttt{pos\_weight} (F) no empeora el AUC ($+0.008$).
+Quitar \texttt{pos\_weight} (F) no empeora el AUC: $+0.008$ con la semilla 42 y $+0.002$ de media en tres semillas, con signo variable ($-0.019$ a $+0.018$).
 Esto es esperable: el AUC solo mide el orden de los casos, y \texttt{pos\_weight} sobre todo desplaza la calibración, lo que aquí se compensa al elegir el umbral en el holdout.
 F tiene más recall y menos precisión que B.
-La focal (C) da una mejora pequeña y no significativa.
+La focal (C) da una mejora pequeña y no significativa, pero es la única variante que supera a B en las tres semillas.
+En los cuatro hallazgos menos frecuentes del entrenamiento (Tabla~\ref{tab:raros}), C mejora a B en tres, sobre todo en contusión ($+0.067$), y F queda a menos de $0.02$ de B en los cuatro.
+
+\begin{table}[t]
+  \caption{AUC en los gold de los cuatro hallazgos menos frecuentes en el entrenamiento, media de tres semillas.}
+  \label{tab:raros}
+  \centering
+  \small
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    Hallazgo & Prevalencia train & B (\texttt{pos\_weight}) & F (sin \texttt{pos\_weight}) & C (focal) \\
+    \midrule
+    Fracture         & .128 & .715 & .706 & .728 \\
+    Contusion        & .167 & .748 & .754 & .814 \\
+    MCL              & .193 & .638 & .636 & .615 \\
+    Lateral Meniscus & .202 & .804 & .788 & .839 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
 El desbalance que más afecta al resultado no es el interno, sino el desplazamiento entre las etiquetas débiles y los gold.
 Fractura, contusión y sinovitis tienen en los gold el doble de prevalencia que en el entrenamiento, y las artrosis lateral y medial casi la mitad.
 Los gold parecen haber sido elegidos con más patología, y además el extractor sub-registra los hallazgos que el reporte omite.
