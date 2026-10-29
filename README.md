@@ -44,9 +44,9 @@ Los datos de la competencia **no están en este repositorio**, por su tamaño y 
 │   ├── resumen_experimentos.csv    # igual al de la corrida 1 salvo los minutos (la semilla 42 se reproduce exacta)
 │   ├── knee-train-v2.ipynb         # notebook ejecutado en Kaggle
 │   └── knee-train-v2.log           # log completo de la corrida 2
-├── informe/                 # secciones del informe técnico en LaTeX
-│   ├── evolucion_extractor.tex     # cómo se construyó e iteró el extractor de etiquetas
-│   ├── experimentos.tex            # diseño de experimentos y resultados
+├── informe/                 # paper: versión NeurIPS (entrega) y versión IEEE, con el mismo contenido
+│   ├── main_v2.tex                 # formato NeurIPS; compilar con `tectonic main_v2.tex` o en Overleaf (con neurips_2025.sty)
+│   ├── main.tex                    # formato IEEE (plantilla del curso); compilar con `tectonic main.tex`
 │   ├── referencias.bib
 │   └── figs/                       # copias de experimentos.png y gradcam.png
 └── work/                    # (ignorado por git) datos sintéticos y salidas de la corrida local
